@@ -803,6 +803,48 @@ UPDATE RTD_Info SET Status='1' WHERE Status='不接收';
 UPDATE RTD_Info SET Status='2' WHERE Status='备用站';</code></pre>
 <p><strong><em>检查Stock_view视图，关键点，satus,set_color,setsize</em></strong></p>
 </li>
+<li><p>其他配置项</p>
+<ol>
+<li>数据库参数配置第3项，IP地址应为 <code>192.168.1.99</code></li>
+<li>数据库参数配置第66项，MAC地址应为<code>UDP</code>服务器MAC地址。</li>
+<li>UDP服务器IP设置，IP地址应为：192.168.1.99,并且一定要设置子网掩码与网关，不然UDP可能故障。</li>
+<li>下未及原则上IP地址为对应站号，比如第五站，那IP地址应为：192.168.1.105，也就是100+站位号</li>
+<li>所有单线站位必须连续，比如1-5,6-20,根据线别配置起始线以及对应总站数。切不可使用不连续站位。</li>
+</ol>
+</li>
+</ol>
+<h3 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h3><ol>
+<li>程序无法启动或主控无法启动<ol>
+<li>线别对应站位是否配置正确。站位具体计算在 <code>line_information</code> 中起始站与站数量中体现。但是实际应用回取 <code>rtd_info</code>  所以请保证 <code>line_information</code>与<code>rtd_info</code>中站点的匹配。</li>
+</ol>
+</li>
+<li>首站不出站<ol>
+<li>首先看日志确认当前衣架号，可以看日志，看回归…</li>
+<li>查看 <code>Hanger_Master</code>表中是否有记录</li>
+<li>如果有记录请确认记录的 <code>Next_Station</code>是否正常。</li>
+<li>检查存储过程<code>Pro_Fetch_Route_check</code> 确认当前衣架是否为首站。</li>
+<li>检查存储过程 <code>Pro_Fetch_Route</code> 下一站流程是否正常。</li>
+</ol>
+</li>
+<li>其他站不出站<ol>
+<li>与首站不出站类似，只是不需要检查 <code>Pro_Fetch_Route_check</code></li>
+<li><code>Pro_Fetch_Route</code> 首站 <code>flag</code>为1，其他为0</li>
+</ol>
+</li>
+<li>跨线站到站<ol>
+<li>数据库 <code>Hanger_Master</code> 中ToLine,ToStaiton 用作临时存储。<code>Pro_Fetch_Route</code>存储过程中处理</li>
+</ol>
+</li>
+<li>多工序返工<ol>
+<li>将返工信息存储于临时暂存区，指令 <code>GlobalCmd.MUILT_REDO</code></li>
+<li>确认返工 <code>GlobalCmd.MUILT_REDO_COMMIT</code> 读取暂存区数据，执行正常返工流程。</li>
+<li>返工涉及到的表 <code>QC_Hanger_Routing</code> 表中is_redo 确认是否返工完成。</li>
+</ol>
+</li>
+<li>其他<ol>
+<li>请参见初始化流程</li>
+</ol>
+</li>
 </ol>
 </li>
 </ol>
