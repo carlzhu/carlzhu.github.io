@@ -764,20 +764,18 @@ contents=0,next_workstation=0,accepted_by_node=0,previous_contents=0
             and a.line_number=b.line_number
             and a.station_number=b.workstation 
             and (b.status='0' or b.status is null or b.status='')
---            and b.line_number=@iLineNumber_in
             and a.process_order=3
-    --        and b.online=1
             and b.is_station_full=0
             and (1=0 or 1=1 and b.stock_recv_on_chain<b.Station_Full_Numbers)
             and (a.receive_mode is null or a.receive_mode in (1,3))
-            and (b.set_colour=4 or b.set_colour='任意' or b.set_colour is null) and (b.set_size=5 or b.set_size='任意' or b.set_size is null)
-    --        and b.is_register_full=0
-            and b.stock_recv_on_chain<4
+            and (b.set_colour=4 or b.set_colour='任意' or b.set_colour is null) and                         (b.set_size=5 or b.set_size='任意' or b.set_size is null)
+                and b.stock_recv_on_chain<4
             order by b.stock_recv_on_chain asc ,Distribute_Time asc
 
             select @less_stock,  @less_station</code></pre>
 <ol>
-<li><p>其中，接收模式，现在为（0,1,2)，</p>
+<li>其中，接收模式，现在为（0,1,2)，</li>
+</ol>
 </li>
 <li><p>是否满站：is_station_full</p>
 </li>
@@ -785,8 +783,6 @@ contents=0,next_workstation=0,accepted_by_node=0,previous_contents=0
 </li>
 <li><p>这个主要为指定颜色尺码进站，</p>
 <p>b.set_colour=4 or b.set_colour=’任意’ or b.set_colour is null) and (b.set_size=5 or b.set_size=’任意’ or b.set_size is null</p>
-</li>
-</ol>
 </li>
 <li><p>数据处理</p>
 <pre class=" language-mssql"><code class="language-mssql">UPDATE RTD_Info SET 
