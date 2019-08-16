@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>ZHURG</title>
+  
+  <subtitle>Hello.</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://x.zhurg.net/"/>
+  <updated>2019-07-27T00:55:28.000Z</updated>
+  <id>http://x.zhurg.net/</id>
+  
+  <author>
+    <name>zhurg</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://x.zhurg.net/2019/08/16/hello-world/"/>
+    <id>http://x.zhurg.net/2019/08/16/hello-world/</id>
+    <published>2019-08-16T00:44:32.470Z</published>
+    <updated>2019-07-27T00:55:28.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>智能掉挂说明</title>
+    <link href="http://x.zhurg.net/2019/08/10/ghs-config/"/>
+    <id>http://x.zhurg.net/2019/08/10/ghs-config/</id>
+    <published>2019-08-10T00:43:53.000Z</published>
+    <updated>2019-08-13T15:25:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;吊挂基础数据配置&quot;&gt;&lt;a href=&quot;#吊挂基础数据配置&quot; class=&quot;headerlink&quot; title=&quot;吊挂基础数据配置&quot;&gt;&lt;/a&gt;吊挂基础数据配置&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;重置pusher_info参数
+        
+      
+    
+    </summary>
+    
+      <category term="YIN" scheme="http://x.zhurg.net/categories/YIN/"/>
+    
+    
+      <category term="ghs" scheme="http://x.zhurg.net/tags/ghs/"/>
+    
+      <category term="智能吊挂" scheme="http://x.zhurg.net/tags/%E6%99%BA%E8%83%BD%E5%90%8A%E6%8C%82/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IIS 应用程序首次启动慢</title>
+    <link href="http://x.zhurg.net/2019/08/01/iis-first-slow/"/>
+    <id>http://x.zhurg.net/2019/08/01/iis-first-slow/</id>
+    <published>2019-08-01T13:47:23.000Z</published>
+    <updated>2019-08-01T13:58:54.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;问题现象&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;访问ASP.NET
+        
+      
+    
+    </summary>
+    
+      <category term="web" scheme="http://x.zhurg.net/categories/web/"/>
+    
+    
+      <category term="IIS" scheme="http://x.zhurg.net/tags/IIS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WPF 全局异常补获</title>
+    <link href="http://x.zhurg.net/2019/07/30/wpf-exception-catch/"/>
+    <id>http://x.zhurg.net/2019/07/30/wpf-exception-catch/</id>
+    <published>2019-07-30T04:53:43.000Z</published>
+    <updated>2019-07-31T00:54:44.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;直接上代上码&quot;&gt;&lt;a href=&quot;#直接上代上码&quot; class=&quot;headerlink&quot; title=&quot;直接上代上码&quot;&gt;&lt;/a&gt;直接上代上码&lt;/h3&gt;&lt;h4 id=&quot;第一种&quot;&gt;&lt;a href=&quot;#第一种&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term=".Net" scheme="http://x.zhurg.net/categories/Net/"/>
+    
+    
+      <category term="WPF" scheme="http://x.zhurg.net/tags/WPF/"/>
+    
+      <category term="WPF异常补获" scheme="http://x.zhurg.net/tags/WPF%E5%BC%82%E5%B8%B8%E8%A1%A5%E8%8E%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>免费的包管理平台使用</title>
+    <link href="http://x.zhurg.net/2019/07/29/private-nuget/"/>
+    <id>http://x.zhurg.net/2019/07/29/private-nuget/</id>
+    <published>2019-07-29T00:43:34.000Z</published>
+    <updated>2019-07-29T00:55:16.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;个人私有包地址：&lt;code&gt;https://pkgs.dev.azure.com/zhurg/_packaging/YIN/nuget/v3/index.json&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Nuget-私有包&quot;&gt;&lt;a href=&quot;#Nuget-私有包&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="nuget" scheme="http://x.zhurg.net/categories/nuget/"/>
+    
+    
+      <category term="nuget" scheme="http://x.zhurg.net/tags/nuget/"/>
+    
+      <category term="github" scheme="http://x.zhurg.net/tags/github/"/>
+    
+      <category term="私有包" scheme="http://x.zhurg.net/tags/%E7%A7%81%E6%9C%89%E5%8C%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VS_2019_KEY</title>
+    <link href="http://x.zhurg.net/2019/07/28/vs-2019-key/"/>
+    <id>http://x.zhurg.net/2019/07/28/vs-2019-key/</id>
+    <published>2019-07-28T14:24:07.000Z</published>
+    <updated>2019-07-28T14:28:18.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Visual-Stduio-2019-Key&quot;&gt;&lt;a href=&quot;#Visual-Stduio-2019-Key&quot; class=&quot;headerlink&quot; title=&quot;Visual Stduio 2019 Key&quot;&gt;&lt;/a&gt;Visual Stduio 2019
+        
+      
+    
+    </summary>
+    
+      <category term="VS" scheme="http://x.zhurg.net/categories/VS/"/>
+    
+    
+      <category term="VS" scheme="http://x.zhurg.net/tags/VS/"/>
+    
+      <category term="Visual studio" scheme="http://x.zhurg.net/tags/Visual-studio/"/>
+    
+      <category term="Key" scheme="http://x.zhurg.net/tags/Key/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用gitbub和hexo制作免费博客</title>
+    <link href="http://x.zhurg.net/2019/07/27/blog-init/"/>
+    <id>http://x.zhurg.net/2019/07/27/blog-init/</id>
+    <published>2019-07-27T05:40:46.000Z</published>
+    <updated>2019-07-27T11:23:12.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h2&gt;&lt;h3 id=&quot;解决npm慢的问题&quot;&gt;&lt;a href=&quot;#解决npm慢的问题&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="gitbub" scheme="http://x.zhurg.net/categories/gitbub/"/>
+    
+    
+      <category term="github" scheme="http://x.zhurg.net/tags/github/"/>
+    
+      <category term="hexo" scheme="http://x.zhurg.net/tags/hexo/"/>
+    
+      <category term="blog" scheme="http://x.zhurg.net/tags/blog/"/>
+    
+  </entry>
+  
+</feed>
