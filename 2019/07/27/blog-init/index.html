@@ -7,7 +7,10 @@
     <meta name="keywords" content="使用gitbub和hexo制作免费博客, ZHURG">
     <meta name="description" content="准备工作解决npm慢的问题npm config set registry https:``//registry.npm.taobao.org
 npm install
-hexo 常和命令hexo new “postName” #新建文章hex">
+核心安装步骤
+安装git工具，并配置用户及邮箱地址
+生成 SSH Key
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -429,6 +432,15 @@ hexo 常和命令hexo new “postName” #新建文章hex">
             <div id="articleContent">
                 <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="解决npm慢的问题"><a href="#解决npm慢的问题" class="headerlink" title="解决npm慢的问题"></a>解决npm慢的问题</h3><p><code>npm config set registry https:``//registry.npm.taobao.org</code></p>
 <p><code>npm install</code></p>
+<h3 id="核心安装步骤"><a href="#核心安装步骤" class="headerlink" title="核心安装步骤"></a>核心安装步骤</h3><ol>
+<li>安装git工具，并配置用户及邮箱地址</li>
+<li>生成 SSH Key</li>
+<li>将生成日pub内容复制至github ssh中</li>
+<li>安装nodejs</li>
+<li>全局安装hexo [npm install -g hexo]</li>
+<li>初始化hexo [hexo init]</li>
+<li>安装github插件[npm install hexo-deployer-git –save]</li>
+</ol>
 <h3 id="hexo-常和命令"><a href="#hexo-常和命令" class="headerlink" title="hexo 常和命令"></a>hexo 常和命令</h3><p>hexo new “postName” #新建文章<br>hexo new page “pageName” #新建页面<br>hexo generate #生成静态页面至public目录<br>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）<br>hexo deploy #部署到GitHub<br>hexo help  # 查看帮助<br>hexo version  #查看Hexo的版本</p>
 <h3 id="缩写"><a href="#缩写" class="headerlink" title="缩写"></a>缩写</h3><p>hexo n == hexo new<br>hexo g == hexo generate<br>hexo s == hexo server<br>hexo d == hexo deploy</p>
 <h3 id="组合命令"><a href="#组合命令" class="headerlink" title="组合命令"></a>组合命令</h3><p>hexo s -g #生成并本地预览<br>hexo d -g #生成并上传</p>
