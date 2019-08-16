@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://x.zhurg.net/"/>
-  <updated>2019-08-16T01:51:45.606Z</updated>
+  <updated>2019-08-16T03:21:03.617Z</updated>
   <id>http://x.zhurg.net/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>智能吊挂系统使用说明</title>
+    <link href="http://x.zhurg.net/2019/08/16/ghs/"/>
+    <id>http://x.zhurg.net/2019/08/16/ghs/</id>
+    <published>2019-08-16T03:18:41.000Z</published>
+    <updated>2019-08-16T03:21:03.617Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;吊挂基础数据配置&quot;&gt;&lt;a href=&quot;#吊挂基础数据配置&quot; class=&quot;headerlink&quot; title=&quot;吊挂基础数据配置&quot;&gt;&lt;/a&gt;吊挂基础数据配置&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;重置pusher_info参数
+        
+      
+    
+    </summary>
+    
+      <category term="YIN" scheme="http://x.zhurg.net/categories/YIN/"/>
+    
+    
+      <category term="ghs" scheme="http://x.zhurg.net/tags/ghs/"/>
+    
+      <category term="智能吊挂" scheme="http://x.zhurg.net/tags/%E6%99%BA%E8%83%BD%E5%90%8A%E6%8C%82/"/>
+    
+  </entry>
   
   <entry>
     <title>yin_framework</title>
@@ -63,35 +92,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>智能掉挂说明</title>
-    <link href="http://x.zhurg.net/2019/08/10/ghs-config/"/>
-    <id>http://x.zhurg.net/2019/08/10/ghs-config/</id>
-    <published>2019-08-10T00:43:53.000Z</published>
-    <updated>2019-08-16T03:13:35.705Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;吊挂基础数据配置&quot;&gt;&lt;a href=&quot;#吊挂基础数据配置&quot; class=&quot;headerlink&quot; title=&quot;吊挂基础数据配置&quot;&gt;&lt;/a&gt;吊挂基础数据配置&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;重置pusher_info参数
-        
-      
-    
-    </summary>
-    
-      <category term="YIN" scheme="http://x.zhurg.net/categories/YIN/"/>
-    
-    
-      <category term="ghs" scheme="http://x.zhurg.net/tags/ghs/"/>
-    
-      <category term="智能吊挂" scheme="http://x.zhurg.net/tags/%E6%99%BA%E8%83%BD%E5%90%8A%E6%8C%82/"/>
     
   </entry>
   

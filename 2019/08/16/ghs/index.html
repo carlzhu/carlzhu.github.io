@@ -4,8 +4,12 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, ZHURG">
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex">
+    <meta name="keywords" content="智能吊挂系统使用说明, ZHURG">
+    <meta name="description" content="吊挂基础数据配置
+重置pusher_info参数 [pusher_info]
+contents=0,next_workstation=0,accepted_by_node=0,previous_contents=0
+
+清除报警信息[appe">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Hello World | ZHURG</title>
+    <title>智能吊挂系统使用说明 | ZHURG</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -260,13 +264,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Hello World
+                        智能吊挂系统使用说明
                     </div>
                 </div>
             </div>
@@ -375,12 +379,29 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/ghs/" target="_blank">
+                                <span class="chip bg-color">ghs</span>
+                            </a>
+                        
+                            <a href="/tags/智能吊挂/" target="_blank">
+                                <span class="chip bg-color">智能吊挂</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/YIN/" class="post-category" target="_blank">
+                                YIN
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -404,15 +425,431 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+                <h3 id="吊挂基础数据配置"><a href="#吊挂基础数据配置" class="headerlink" title="吊挂基础数据配置"></a>吊挂基础数据配置</h3><ul>
+<li><p>重置pusher_info参数 [pusher_info]</p>
+<p>contents=0,next_workstation=0,accepted_by_node=0,previous_contents=0</p>
+</li>
+<li><p>清除报警信息[appeal_records]   </p>
+<p>isfirsthanger=0,online=0,Clocked_In=0,is_register_full=0,is_station_full=0</p>
+</li>
+<li><p>清除链条上数量-保存链条数量[rtd_info]</p>
+</li>
+<li><p>清除链条上数量-不保存链条数量[rtd_info]</p>
+<p>recv_on_chain=0,isfirsthanger=0,online=0,Clocked_In=0,is_register_full=0,is_station_full=0</p>
+</li>
+</ul>
+<h5 id="基础数据"><a href="#基础数据" class="headerlink" title="基础数据"></a>基础数据</h5><ol>
+<li>工序 [Operation_Codes]</li>
+<li>尺码 [Size_Master]</li>
+<li>颜色 [Colour_Master]</li>
+<li>客户信息[Customer]</li>
+<li>员工信息[Employee_Master]</li>
+<li>订单信息[Style_order]</li>
+<li>款式信息[Style_master]</li>
+<li>款式工艺流程[Style_Operations]</li>
+<li>系统参数配置[Parameters]</li>
+</ol>
+<h5 id="其他配置表"><a href="#其他配置表" class="headerlink" title="其他配置表"></a>其他配置表</h5><ol>
+<li><p>线信息[Line_Information]</p>
+</li>
+<li><p>站信息[RTD_Info]</p>
+</li>
+<li><p>衣架线路图</p>
+<ol>
+<li>主表[Style_loading]</li>
+<li>款式工艺流程[Style_Operations]</li>
+<li>款式站位信息[Style_Route_Detail]</li>
+</ol>
+</li>
+<li><p>衣架流动</p>
+<ol>
+<li>当前衣架流动信息 [Hanger_Master]</li>
+<li>衣架流动历史信息 [Hanger_Detail]</li>
+<li>返工[QC_Hanger_Routing]</li>
+</ol>
+</li>
+<li><p>桥接配置</p>
+<ol>
+<li><p>Bridge_Information（从哪条线哪个站，要去哪条线哪个站）</p>
+<table>
+<thead>
+<tr>
+<th>Id    </th>
+<th>From_Line</th>
+<th>From_Station</th>
+<th>To_Line</th>
+<th>To_Station</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>主键</td>
+<td>从哪条线</td>
+<td>从哪个站</td>
+<td>去哪条线</td>
+<td>去哪个站</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+</li>
+</ol>
+<ol start="2">
+<li><p>Bridge_Route（从当前线去下一条线要经过哪条线）</p>
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th>iNextLineNo</th>
+<th>iCurBgLineNo</th>
+<th>iCurBgStationNo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>主键</td>
+<td>去下一条线</td>
+<td>从当前线</td>
+<td>经过哪条线</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<ol start="6">
+<li><p>初始化杆值配置</p>
+<ol>
+<li><p>【线参数配置】[Hardware_Configuration] 总杆数配置<strong>！！！！！！重要！！！！！</strong></p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>字段</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>总杆数量</td>
+<td>Pushers</td>
+</tr>
+<tr>
+<td>推杆器间距</td>
+<td>Distance_Between_Pushers</td>
+</tr>
+<tr>
+<td>推杆器时间间隔</td>
+<td>Time_Between_Pushers</td>
+</tr>
+<tr>
+<td>MotorLAN光电开关允许误差</td>
+<td>Sensor_Timeout</td>
+</tr>
+<tr>
+<td>进站气阀开关时长</td>
+<td>In_Feed_Duration</td>
+</tr>
+<tr>
+<td>出站气阀开关时长</td>
+<td>Out_Feed_Duration</td>
+</tr>
+<tr>
+<td>总工作站数</td>
+<td>Number_Of_Workstations</td>
+</tr>
+<tr>
+<td>回归站杠号</td>
+<td>Rfid_Pusher</td>
+</tr>
+<tr>
+<td>推杆最大时间间隔</td>
+<td>Max_Time_Between_Pushers</td>
+</tr>
+<tr>
+<td>推杆最小时间间隔</td>
+<td>Min_Time_Between_Pushers</td>
+</tr>
+<tr>
+<td>防抖动延时</td>
+<td>Prevent_jitter_Delay</td>
+</tr>
+<tr>
+<td>条屏通信串口</td>
+<td>iSerial_Port</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>【推杆参数】[Workstation_Hardware_Configuration]（系统硬件参数配置）</p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>字段</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>线</td>
+<td>Line_Number</td>
+</tr>
+<tr>
+<td>工作站编号</td>
+<td>Workstation</td>
+</tr>
+<tr>
+<td>进推杆器号</td>
+<td>In_Feed_Pusher</td>
+</tr>
+<tr>
+<td>进推杆器与摆头距离</td>
+<td>In_Feed_Distance</td>
+</tr>
+<tr>
+<td>出推杆器号</td>
+<td>Out_Feed_Pusher</td>
+</tr>
+<tr>
+<td>出推杆器与摆头距离</td>
+<td>Out_Feed_Distance</td>
+</tr>
+<tr>
+<td>IP地址</td>
+<td>Ip_Addr</td>
+</tr>
+<tr>
+<td>是否允许衣架出站</td>
+<td>bHangerOut</td>
+</tr>
+<tr>
+<td>进站位与大传感器之间的杆数</td>
+<td>In_Feed_Pushers_from_Sensor</td>
+</tr>
+<tr>
+<td>进站推杆间距</td>
+<td>In_Feed_Distance_To_Next_Pusher</td>
+</tr>
+<tr>
+<td>出站位与大传感器之间的杆数</td>
+<td>Out_Feed_Pushers_From_Sensor</td>
+</tr>
+<tr>
+<td>出站推杆间距</td>
+<td>Out_Feed_Distance_To_Next_Pusher</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>[RTD_Info]（线别配置）</p>
+<ol>
+<li><p>Line_Number</p>
+</li>
+<li><p>Workstation</p>
+</li>
+<li><p>In_Feed_Pusher「进站推杆间距」</p>
+</li>
+<li><p>Out_Feed_Pusher「出站推杆间距」</p>
+<p>注：In_Feed_Pusher，Out_Feed_Pusher与Workstation_Hardware_Configuration保持一致</p>
+</li>
+</ol>
+</li>
+<li><p>计算规则</p>
+<ol>
+<li>进出站推杆杆数<ol>
+<li>从大传感器逆时针数杆的数目至站位</li>
+</ol>
+</li>
+<li>进出站推杆间距<ol>
+<li>进站：<ol>
+<li>大于200mm，以当前杆号为准（200+当前杆到进站口的距离-200)</li>
+<li>小到200mm，加一杆（400)加少于200的值，再减200</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>出站：<ol>
+<li>后一杆加两杆（大概数据在800-1000） </li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="数据迁移"><a href="#数据迁移" class="headerlink" title="数据迁移"></a>数据迁移</h3><ol>
+<li><p>涉及到的表（<strong>特别说明，以下表与以前的表唯一不同是新增了ID列</strong>）</p>
+<table>
+<thead>
+<tr>
+<th>说明</th>
+<th>表名</th>
+<th>配置说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用户登陆信息表</td>
+<td>Password_Security</td>
+<td>复制</td>
+</tr>
+<tr>
+<td>员工信息表</td>
+<td>Employee_Master</td>
+<td>复制</td>
+</tr>
+<tr>
+<td>线别配置表</td>
+<td>Line_Information</td>
+<td>复制</td>
+</tr>
+<tr>
+<td>工作站表</td>
+<td>RTD_Info</td>
+<td>复制+IP配置</td>
+</tr>
+<tr>
+<td>系统参数表</td>
+<td>Parameters</td>
+<td>复制</td>
+</tr>
+<tr>
+<td>推杆参数表</td>
+<td>Pusher_Info</td>
+<td>复制</td>
+</tr>
+<tr>
+<td>硬件配置表</td>
+<td>Hardware_Configuration</td>
+<td>复制</td>
+</tr>
+<tr>
+<td>工作站配置表</td>
+<td>Workstation_Hardware_Configuration</td>
+<td>复制</td>
+</tr>
+<tr>
+<td>桥接信息表</td>
+<td>Bridge_Information</td>
+<td>清空重配</td>
+</tr>
+<tr>
+<td>桥接路由表</td>
+<td>Bridge_Route</td>
+<td>清空重配</td>
+</tr>
+</tbody></table>
+<p><strong>以上注意点</strong></p>
+<ol>
+<li><p>以上表都有加ID主键，请添加时使用 <code>SELECT 0,* FROM xxx</code> 其中0为ID列。</p>
+</li>
+<li><p>线别复制完成，确认<code>motolan IP,总站数，起始站号</code></p>
+</li>
+<li><p>工作站复制完成，确认 <code>下位机的IP地址，一般1号站为101,2号站为102...</code></p>
+</li>
+<li><p>推杆参数<code>[Pusher_Info]</code>与硬件配置表<code>[Hardware_Configuration]</code>所设置的<code>推杆总数是否匹配</code></p>
+</li>
+<li><p><code>Workstation_Hardware_Configuration</code> 配置推杆进出站参数，一般不准备配置这里</p>
+<p><strong><em>一定要先核对总杆数是否正确，常规我们设置的是23杆，如果超过23杆，第23杆会做减1处理</em></strong></p>
+</li>
+<li><p>控制是否出站很多核心参数都在rtd_info里面，关键SQL</p>
+<pre class=" language-mssql"><code class="language-mssql">declare @less_stock int,
+                @less_station int,
+                @less_station_line int,
+                @distribute_time datetime
+        set @less_stock=0
+        set @less_station=0
+        set @less_station_line=0
+        set @distribute_time=''
+        select top 1 
+            @less_stock=b.stock_recv_on_chain,
+            @less_station=a.station_number,
+            @less_station_line=a.line_number,
+            @distribute_time=b.Distribute_Time
+        from style_route_detail a ,stock_view b
+            where a.route_id=1350
+            and a.line_number=b.line_number
+            and a.station_number=b.workstation 
+            and (b.status='0' or b.status is null or b.status='')
+            and a.process_order=3
+            and b.is_station_full=0
+            and (1=0 or 1=1 and b.stock_recv_on_chain<b.Station_Full_Numbers)
+            and (a.receive_mode is null or a.receive_mode in (1,3))
+            and (b.set_colour=4 or b.set_colour='任意' or b.set_colour is null) and                         (b.set_size=5 or b.set_size='任意' or b.set_size is null)
+                and b.stock_recv_on_chain<4
+            order by b.stock_recv_on_chain asc ,Distribute_Time asc
+
+            select @less_stock,  @less_station</code></pre>
+<ol>
+<li><p>其中，接收模式，现在为（0,1,2)，</p>
+</li>
+<li><p>是否满站：is_station_full</p>
+</li>
+<li><p>这一句也是相当重要的： b.stock_recv_on_chain&lt;b.Station_Full_Numbers </p>
+</li>
+<li><p>这个主要为指定颜色尺码进站，</p>
+<p>b.set_colour=4 or b.set_colour=’任意’ or b.set_colour is null) and (b.set_size=5 or b.set_size=’任意’ or b.set_size is null</p>
+</li>
+</ol>
+</li>
+<li><p>数据处理</p>
+<pre class=" language-mssql"><code class="language-mssql">UPDATE RTD_Info SET 
+Set_Colour=null,
+Set_Size=0,
+Is_Register_Full=0,
+Is_Station_Full=0,
+recv_on_chain=0,
+isfirsthanger=0,
+online=0,
+Clocked_In=0;
+UPDATE RTD_Info SET Status='0' WHERE Status='接收';
+UPDATE RTD_Info SET Status='1' WHERE Status='不接收';
+UPDATE RTD_Info SET Status='2' WHERE Status='备用站';</code></pre>
+<p><strong><em>检查Stock_view视图，关键点，satus,set_color,setsize</em></strong></p>
+</li>
+<li><p>其他配置项</p>
+<ol>
+<li>数据库参数配置第3项，IP地址应为 <code>192.168.1.99</code></li>
+<li>数据库参数配置第66项，MAC地址应为<code>UDP</code>服务器MAC地址。</li>
+<li>UDP服务器IP设置，IP地址应为：192.168.1.99,并且一定要设置子网掩码与网关，不然UDP可能故障。</li>
+<li>下未及原则上IP地址为对应站号，比如第五站，那IP地址应为：192.168.1.105，也就是100+站位号</li>
+<li>所有单线站位必须连续，比如1-5,6-20,根据线别配置起始线以及对应总站数。切不可使用不连续站位。</li>
+</ol>
+</li>
+</ol>
+<h3 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h3><ol>
+<li>程序无法启动或主控无法启动<ol>
+<li>线别对应站位是否配置正确。站位具体计算在 <code>line_information</code> 中起始站与站数量中体现。但是实际应用回取 <code>rtd_info</code>  所以请保证 <code>line_information</code>与<code>rtd_info</code>中站点的匹配。</li>
+</ol>
+</li>
+<li>首站不出站<ol>
+<li>首先看日志确认当前衣架号，可以看日志，看回归…</li>
+<li>查看 <code>Hanger_Master</code>表中是否有记录</li>
+<li>如果有记录请确认记录的 <code>Next_Station</code>是否正常。</li>
+<li>检查存储过程<code>Pro_Fetch_Route_check</code> 确认当前衣架是否为首站。</li>
+<li>检查存储过程 <code>Pro_Fetch_Route</code> 下一站流程是否正常。</li>
+</ol>
+</li>
+<li>其他站不出站<ol>
+<li>与首站不出站类似，只是不需要检查 <code>Pro_Fetch_Route_check</code></li>
+<li><code>Pro_Fetch_Route</code> 首站 <code>flag</code>为1，其他为0,</li>
+</ol>
+</li>
+<li>不出站不提示<ol>
+<li>[bSend20_Cammand] 参数表中 para_id = 48 是否开启[1：开启，0：未开启]</li>
+</ol>
+</li>
+<li>站到站不起作用<ol>
+<li>[iRedoToStation] 参数表中 para_id = 88 是否开启[1：开启，0：未开启]</li>
+</ol>
+</li>
+<li>跨线站到站<ol>
+<li>数据库 <code>Hanger_Master</code> 中ToLine,ToStaiton 用作临时存储。<code>Pro_Fetch_Route</code>存储过程中处理</li>
+</ol>
+</li>
+<li>多工序返工<ol>
+<li>将返工信息存储于临时暂存区，指令 <code>GlobalCmd.MUILT_REDO</code></li>
+<li>确认返工 <code>GlobalCmd.MUILT_REDO_COMMIT</code> 读取暂存区数据，执行正常返工流程。</li>
+<li>返工涉及到的表 <code>QC_Hanger_Routing</code> 表中is_redo 确认是否返工完成。</li>
+</ol>
+</li>
+<li>其他<ol>
+<li>请参见初始化流程</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
 
             </div>
             <hr/>
@@ -571,9 +1008,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《Hello World》
+                    《智能吊挂系统使用说明》
                 </span> by
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/08/16/hello-world/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/08/16/ghs/" property="cc:attributionName"
                rel="cc:attributionURL">
                 zhurg
             </a> is licensed under a
@@ -613,9 +1050,64 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/2019/08/16/ghs/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="智能吊挂系统使用说明">
+                        
+                        <span class="card-title">智能吊挂系统使用说明</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            吊挂中常用的表，以及旧版程序升级到新版本的迁移注意事项。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/YIN/" class="post-category" target="_blank">
+                                    YIN
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ghs/" target="_blank">
+                        <span class="chip bg-color">ghs</span>
+                    </a>
+                    
+                    <a href="/tags/智能吊挂/" target="_blank">
+                        <span class="chip bg-color">智能吊挂</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2019/08/16/yin-framework/">
                     <div class="card-image">
@@ -633,9 +1125,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -657,55 +1149,6 @@
                     
                     <a href="/tags/Framework/" target="_blank">
                         <span class="chip bg-color">Framework</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/08/01/iis-first-slow/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="IIS 应用程序首次启动慢">
-                        
-                        <span class="card-title">IIS 应用程序首次启动慢</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            IIS下网站首次启动慢问题处理。
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-01
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/web/" class="post-category" target="_blank">
-                                    web
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/IIS/" target="_blank">
-                        <span class="chip bg-color">IIS</span>
                     </a>
                     
                 </div>
