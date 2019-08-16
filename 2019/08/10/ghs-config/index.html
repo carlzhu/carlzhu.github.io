@@ -824,7 +824,15 @@ UPDATE RTD_Info SET Status='2' WHERE Status='备用站';</code></pre>
 </li>
 <li>其他站不出站<ol>
 <li>与首站不出站类似，只是不需要检查 <code>Pro_Fetch_Route_check</code></li>
-<li><code>Pro_Fetch_Route</code> 首站 <code>flag</code>为1，其他为0</li>
+<li><code>Pro_Fetch_Route</code> 首站 <code>flag</code>为1，其他为0,</li>
+</ol>
+</li>
+<li>不出站不提示<ol>
+<li>[bSend20_Cammand] 参数表中 para_id = 48 是否开启[1：开启，0：未开启]</li>
+</ol>
+</li>
+<li>站到站不起作用<ol>
+<li>[iRedoToStation] 参数表中 para_id = 88 是否开启[1：开启，0：未开启]</li>
 </ol>
 </li>
 <li>跨线站到站<ol>
