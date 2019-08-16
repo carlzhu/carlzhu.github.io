@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>yin_framework</title>
+      <link href="/2019/08/16/yin-framework/"/>
+      <url>/2019/08/16/yin-framework/</url>
+      
+        <content type="html"><![CDATA[<h1 id="YIN-Framework"><a href="#YIN-Framework" class="headerlink" title="YIN.Framework"></a>YIN.Framework</h1><h2 id="YIN-Core"><a href="#YIN-Core" class="headerlink" title="YIN.Core"></a>YIN.Core</h2><p><em>//基本数据转换</em><br>obj.ToIn();<br>obj.ToString();<br>obj.ToDouble();<br>…<br><em>//Table,List互转</em><br>List<t> list;<br>DataTable dt = list.ListToDataTable(list);<br>var list2 = dt.ToList<t>();<br>var csvString = Expression.DataTableToString(table);<br><em>//对像互转（对像复制）</em><br>T obj;<br>string s = obj.ToJson();<br>T t = s.ToObject<t>();</t></t></t></p><h2 id="YIN-Data"><a href="#YIN-Data" class="headerlink" title="YIN.Data"></a>YIN.Data</h2><h5 id="应用初始化"><a href="#应用初始化" class="headerlink" title="应用初始化"></a>应用初始化</h5><pre class=" language-c#"><code class="language-c#">                        /*             1，使用数据库连接字符串，可以同时使用多个连接字符串             2，使用数据库映射文件             3，完成配置             */            DataMapper.Initialize(o =>            {            o.UseDb(new List<ConnModel>() {                    new ConnModel() {                        Name ="hsdb", Type = DatabaseType.SqlServer, ConnStr = YIN.Core.Config.GetValue("hsdb"),                    },                    new ConnModel() {                        Name ="hsdb2", Type = DatabaseType.SqlServer, ConnStr = YIN.Core.Config.GetValue("hsdb"),                    },            });            o.UseMappingAssembly(typeof(HangerMasterEntity).Assembly);            o.Complete();</code></pre><h5 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h5><h6 id="获取ISession实例"><a href="#获取ISession实例" class="headerlink" title="获取ISession实例"></a>获取ISession实例</h6><h6 id="直接获取"><a href="#直接获取" class="headerlink" title="直接获取"></a>直接获取</h6><ol><li>SessionFactory.Session //使用默认数据库连接</li><li>SessionFactory.GetIDatabase() //使用默认数据库连接</li><li>SessionFactory.GetIDatabase(“hsdb”) //指定数据库连接。连接名为数据库连接配置时的用户名。</li></ol><h6 id="通过服务层获取"><a href="#通过服务层获取" class="headerlink" title="通过服务层获取"></a>通过服务层获取</h6><ol><li>XXXXXService.cs：RepositoryFactory</li><li>this.BaseRepository() 或 this.BaseRepository(“hsdb”)</li></ol><h6 id="使用ISession对像"><a href="#使用ISession对像" class="headerlink" title="使用ISession对像"></a>使用ISession对像</h6><pre class=" language-c#"><code class="language-c#">                IRepository BeginTrans();        void BulkInsert(string tableName, int buffer, DataTable dt);        void Close();        void Commit();        int Delete<T>(Expression<Func<T, bool>> condition) where T : class, new();        int Delete<T>(T entity) where T : class;        int Delete<T>(List<T> entities) where T : class;        int ExecuteByProc(string procName);        int ExecuteByProc(string procName, List<DbParam> dbParameter);        T ExecuteByProc<T>(string procName) where T : class;        T ExecuteByProc<T>(string procName, object dbParameter) where T : class;        int ExecuteBySql(string strSql);        int ExecuteBySql(string strSql, object dbParameter);        T FindEntity<T>(string strSql, object dbParameter) where T : class, new();        T FindEntity<T>(object keyValue) where T : class;        T FindEntity<T>(Expression<Func<T, bool>> condition) where T : class, new();        IEnumerable<T> FindList<T>(Expression<Func<T, bool>> condition, Pagination pagination) where T : class, new();        IEnumerable<T> FindList<T>(string strSql, object dbParameter, Pagination pagination) where T : class;        IEnumerable<T> FindList<T>() where T : class, new();        IEnumerable<T> FindList<T>(string strSql) where T : class;        IEnumerable<T> FindList<T>(string strSql, object dbParameter) where T : class;        IEnumerable<T> FindList<T>(Pagination pagination) where T : class, new();        IEnumerable<T> FindList<T>(string strSql, Pagination pagination) where T : class;        IEnumerable<T> FindList<T>(Expression<Func<T, bool>> condition) where T : class, new();        object FindObject(string strSql, object dbParameter);        object FindObject(string strSql);        DataTable FindTable(string strSql, object dbParameter, Pagination pagination);        DataTable FindTable(string strSql, Pagination pagination);        DataTable FindTable(string strSql, object dbParameter);        DataTable FindTable(string strSql);        DbConnection GetDbConnection();        IEnumerable<T> GetDbTable<T>() where T : class, new();        IEnumerable<T> GetDbTableFields<T>(string tableName) where T : class, new();        object GetIdentity();        int Insert<T>(T entity) where T : class;        int Insert<T>(List<T> entities) where T : class;        IQueryable<T> IQueryable<T>(Expression<Func<T, bool>> condition) where T : class, new();        IQueryable<T> IQueryable<T>() where T : class, new();        void Rollback();        int Update<T>(List<T> entities) where T : class;        int Update<T>(T entity) where T : class;        int UpdateEx<T>(T entity) where T : class;</code></pre><h6 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h6><ol><li>T 数据库对像，或者是需要查询转换的对像</li><li>BulkInsert 大数据插入</li><li>condition 基于Linq的条件表达式</li><li>Pagination 分页数据</li><li>dbParameter Dapper参数，可以通过 List 使用扩展方法ToDbParameters()`进行转换。</li></ol><h6 id="DEMO"><a href="#DEMO" class="headerlink" title="DEMO"></a>DEMO</h6><ol><li>ISession session;</li><li>Session.FindTable(“sql”); //直接获取一个DataTable</li><li>Session.FindTable (“sql”) //获取DataTable的同时将DataTable转化为对应的 List 对像</li></ol><h6 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h6><ul><li><p>本组件支持主流数据库，支持EF所支持的操作方式。</p></li><li><p>如果使用Update 或者是Insert 以及Delete 这种对像操作，需要使用对像映射功能。</p></li><li><p>所有操作支持 <code>IDisposable</code>,以及<code>数据库事务</code></p></li><li><p>事务的使用方式是</p><ul><li>session.BeginTrans();</li><li>session.Commit();</li><li>session.Rollback();</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> .Net，YIN Framework </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> .Net </tag>
+            
+            <tag> Framework </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2019/08/16/hello-world/"/>
       <url>/2019/08/16/hello-world/</url>
