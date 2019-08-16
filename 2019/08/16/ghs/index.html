@@ -743,33 +743,33 @@ contents=0,next_workstation=0,accepted_by_node=0,previous_contents=0
 <p><strong><em>一定要先核对总杆数是否正确，常规我们设置的是23杆，如果超过23杆，第23杆会做减1处理</em></strong></p>
 </li>
 <li><p>控制是否出站很多核心参数都在rtd_info里面，关键SQL</p>
-<pre class=" language-mssql"><code class="language-mssql">declare @less_stock int,
-                @less_station int,
-                @less_station_line int,
-                @distribute_time datetime
-        set @less_stock=0
-        set @less_station=0
-        set @less_station_line=0
-        set @distribute_time=''
-        select top 1 
-            @less_stock=b.stock_recv_on_chain,
-            @less_station=a.station_number,
-            @less_station_line=a.line_number,
-            @distribute_time=b.Distribute_Time
-        from style_route_detail a ,stock_view b
-            where a.route_id=1350
-            and a.line_number=b.line_number
-            and a.station_number=b.workstation 
-            and (b.status='0' or b.status is null or b.status='')
-            and a.process_order=3
-            and b.is_station_full=0
-            and (1=0 or 1=1 and b.stock_recv_on_chain<b.Station_Full_Numbers)
-            and (a.receive_mode is null or a.receive_mode in (1,3))
-            and (b.set_colour=4 or b.set_colour='任意' or b.set_colour is null) and                         (b.set_size=5 or b.set_size='任意' or b.set_size is null)
-                and b.stock_recv_on_chain<4
-            order by b.stock_recv_on_chain asc ,Distribute_Time asc
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">declare</span> <span class="token variable">@less_stock</span> <span class="token keyword">int</span><span class="token punctuation">,</span>
+                <span class="token variable">@less_station</span> <span class="token keyword">int</span><span class="token punctuation">,</span>
+                <span class="token variable">@less_station_line</span> <span class="token keyword">int</span><span class="token punctuation">,</span>
+                <span class="token variable">@distribute_time</span> <span class="token keyword">datetime</span>
+        <span class="token keyword">set</span> <span class="token variable">@less_stock</span><span class="token operator">=</span><span class="token number">0</span>
+        <span class="token keyword">set</span> <span class="token variable">@less_station</span><span class="token operator">=</span><span class="token number">0</span>
+        <span class="token keyword">set</span> <span class="token variable">@less_station_line</span><span class="token operator">=</span><span class="token number">0</span>
+        <span class="token keyword">set</span> <span class="token variable">@distribute_time</span><span class="token operator">=</span><span class="token string">''</span>
+        <span class="token keyword">select</span> <span class="token keyword">top</span> <span class="token number">1</span> 
+            <span class="token variable">@less_stock</span><span class="token operator">=</span><span class="token number">b</span><span class="token punctuation">.</span>stock_recv_on_chain<span class="token punctuation">,</span>
+            <span class="token variable">@less_station</span><span class="token operator">=</span><span class="token number">a</span><span class="token punctuation">.</span>station_number<span class="token punctuation">,</span>
+            <span class="token variable">@less_station_line</span><span class="token operator">=</span><span class="token number">a</span><span class="token punctuation">.</span>line_number<span class="token punctuation">,</span>
+            <span class="token variable">@distribute_time</span><span class="token operator">=</span><span class="token number">b</span><span class="token punctuation">.</span>Distribute_Time
+        <span class="token keyword">from</span> style_route_detail <span class="token number">a</span> <span class="token punctuation">,</span>stock_view <span class="token number">b</span>
+            <span class="token keyword">where</span> <span class="token number">a</span><span class="token punctuation">.</span>route_id<span class="token operator">=</span><span class="token number">1350</span>
+            <span class="token operator">and</span> <span class="token number">a</span><span class="token punctuation">.</span>line_number<span class="token operator">=</span><span class="token number">b</span><span class="token punctuation">.</span>line_number
+            <span class="token operator">and</span> <span class="token number">a</span><span class="token punctuation">.</span>station_number<span class="token operator">=</span><span class="token number">b</span><span class="token punctuation">.</span>workstation 
+            <span class="token operator">and</span> <span class="token punctuation">(</span><span class="token number">b</span><span class="token punctuation">.</span><span class="token keyword">status</span><span class="token operator">=</span><span class="token string">'0'</span> <span class="token operator">or</span> <span class="token number">b</span><span class="token punctuation">.</span><span class="token keyword">status</span> <span class="token operator">is</span> <span class="token boolean">null</span> <span class="token operator">or</span> <span class="token number">b</span><span class="token punctuation">.</span><span class="token keyword">status</span><span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span>
+            <span class="token operator">and</span> <span class="token number">a</span><span class="token punctuation">.</span>process_order<span class="token operator">=</span><span class="token number">3</span>
+            <span class="token operator">and</span> <span class="token number">b</span><span class="token punctuation">.</span>is_station_full<span class="token operator">=</span><span class="token number">0</span>
+            <span class="token operator">and</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">=</span><span class="token number">0</span> <span class="token operator">or</span> <span class="token number">1</span><span class="token operator">=</span><span class="token number">1</span> <span class="token operator">and</span> <span class="token number">b</span><span class="token punctuation">.</span>stock_recv_on_chain<span class="token operator">&lt;</span><span class="token number">b</span><span class="token punctuation">.</span>Station_Full_Numbers<span class="token punctuation">)</span>
+            <span class="token operator">and</span> <span class="token punctuation">(</span><span class="token number">a</span><span class="token punctuation">.</span>receive_mode <span class="token operator">is</span> <span class="token boolean">null</span> <span class="token operator">or</span> <span class="token number">a</span><span class="token punctuation">.</span>receive_mode <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token operator">and</span> <span class="token punctuation">(</span><span class="token number">b</span><span class="token punctuation">.</span>set_colour<span class="token operator">=</span><span class="token number">4</span> <span class="token operator">or</span> <span class="token number">b</span><span class="token punctuation">.</span>set_colour<span class="token operator">=</span><span class="token string">'任意'</span> <span class="token operator">or</span> <span class="token number">b</span><span class="token punctuation">.</span>set_colour <span class="token operator">is</span> <span class="token boolean">null</span><span class="token punctuation">)</span> <span class="token operator">and</span>                         <span class="token punctuation">(</span><span class="token number">b</span><span class="token punctuation">.</span>set_size<span class="token operator">=</span><span class="token number">5</span> <span class="token operator">or</span> <span class="token number">b</span><span class="token punctuation">.</span>set_size<span class="token operator">=</span><span class="token string">'任意'</span> <span class="token operator">or</span> <span class="token number">b</span><span class="token punctuation">.</span>set_size <span class="token operator">is</span> <span class="token boolean">null</span><span class="token punctuation">)</span>
+                <span class="token operator">and</span> <span class="token number">b</span><span class="token punctuation">.</span>stock_recv_on_chain<span class="token operator">&lt;</span><span class="token number">4</span>
+            <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token number">b</span><span class="token punctuation">.</span>stock_recv_on_chain <span class="token keyword">asc</span> <span class="token punctuation">,</span>Distribute_Time <span class="token keyword">asc</span>
 
-            select @less_stock,  @less_station</code></pre>
+            <span class="token keyword">select</span> <span class="token variable">@less_stock</span><span class="token punctuation">,</span>  <span class="token variable">@less_station</span></code></pre>
 <ol>
 <li><p>其中，接收模式，现在为（0,1,2)，</p>
 </li>
@@ -783,18 +783,18 @@ contents=0,next_workstation=0,accepted_by_node=0,previous_contents=0
 </ol>
 </li>
 <li><p>数据处理</p>
-<pre class=" language-mssql"><code class="language-mssql">UPDATE RTD_Info SET 
-Set_Colour=null,
-Set_Size=0,
-Is_Register_Full=0,
-Is_Station_Full=0,
-recv_on_chain=0,
-isfirsthanger=0,
-online=0,
-Clocked_In=0;
-UPDATE RTD_Info SET Status='0' WHERE Status='接收';
-UPDATE RTD_Info SET Status='1' WHERE Status='不接收';
-UPDATE RTD_Info SET Status='2' WHERE Status='备用站';</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">UPDATE</span> RTD_Info <span class="token keyword">SET</span> 
+Set_Colour<span class="token operator">=</span><span class="token boolean">null</span><span class="token punctuation">,</span>
+Set_Size<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>
+Is_Register_Full<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>
+Is_Station_Full<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>
+recv_on_chain<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>
+isfirsthanger<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>
+online<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>
+Clocked_In<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">UPDATE</span> RTD_Info <span class="token keyword">SET</span> <span class="token keyword">Status</span><span class="token operator">=</span><span class="token string">'0'</span> <span class="token keyword">WHERE</span> <span class="token keyword">Status</span><span class="token operator">=</span><span class="token string">'接收'</span><span class="token punctuation">;</span>
+<span class="token keyword">UPDATE</span> RTD_Info <span class="token keyword">SET</span> <span class="token keyword">Status</span><span class="token operator">=</span><span class="token string">'1'</span> <span class="token keyword">WHERE</span> <span class="token keyword">Status</span><span class="token operator">=</span><span class="token string">'不接收'</span><span class="token punctuation">;</span>
+<span class="token keyword">UPDATE</span> RTD_Info <span class="token keyword">SET</span> <span class="token keyword">Status</span><span class="token operator">=</span><span class="token string">'2'</span> <span class="token keyword">WHERE</span> <span class="token keyword">Status</span><span class="token operator">=</span><span class="token string">'备用站'</span><span class="token punctuation">;</span></code></pre>
 <p><strong><em>检查Stock_view视图，关键点，satus,set_color,setsize</em></strong></p>
 </li>
 <li><p>其他配置项</p>
