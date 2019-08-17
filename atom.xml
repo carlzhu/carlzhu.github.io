@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://x.zhurg.net/"/>
-  <updated>2019-08-16T03:24:43.887Z</updated>
+  <updated>2019-08-17T00:49:55.513Z</updated>
   <id>http://x.zhurg.net/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Thread、ThreadPool、Task、Parallel、Async和Await基本用法、区别以及弊端</title>
+    <link href="http://x.zhurg.net/2019/08/17/csharp-thread/"/>
+    <id>http://x.zhurg.net/2019/08/17/csharp-thread/</id>
+    <published>2019-08-17T00:46:48.000Z</published>
+    <updated>2019-08-17T00:49:55.513Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;原文连接：&lt;/strong&gt;&lt;code&gt;https://mp.weixin.qq.com/s/sT92C26pRZpc7fWawQpdug&lt;/code&gt;&lt;/p&gt;
+&lt;h3
+        
+      
+    
+    </summary>
+    
+      <category term=".Net" scheme="http://x.zhurg.net/categories/Net/"/>
+    
+    
+      <category term="WPF" scheme="http://x.zhurg.net/tags/WPF/"/>
+    
+      <category term="WPF异常补获" scheme="http://x.zhurg.net/tags/WPF%E5%BC%82%E5%B8%B8%E8%A1%A5%E8%8E%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>智能吊挂系统使用说明</title>

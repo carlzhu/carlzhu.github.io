@@ -4,12 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="智能吊挂系统使用说明, ZHURG">
-    <meta name="description" content="吊挂基础数据配置
-重置pusher_info参数 [pusher_info]
-contents=0,next_workstation=0,accepted_by_node=0,previous_contents=0
-
-清除报警信息[appe">
+    <meta name="keywords" content="Thread、ThreadPool、Task、Parallel、Async和Await基本用法、区别以及弊端, ZHURG">
+    <meta name="description" content="原文连接：https://mp.weixin.qq.com/s/sT92C26pRZpc7fWawQpdug
+多线程的操作在程序中也是比较常见的，比如开启一个线程执行一些比较耗时的操作(IO操作)，而主线程继续执行当前操作，不会造成主线程阻">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +14,7 @@ contents=0,next_workstation=0,accepted_by_node=0,previous_contents=0
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>智能吊挂系统使用说明 | ZHURG</title>
+    <title>Thread、ThreadPool、Task、Parallel、Async和Await基本用法、区别以及弊端 | ZHURG</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -264,13 +261,13 @@ contents=0,next_workstation=0,accepted_by_node=0,previous_contents=0
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        智能吊挂系统使用说明
+                        Thread、ThreadPool、Task、Parallel、Async和Await基本用法、区别以及弊端
                     </div>
                 </div>
             </div>
@@ -381,12 +378,12 @@ contents=0,next_workstation=0,accepted_by_node=0,previous_contents=0
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/ghs/" target="_blank">
-                                <span class="chip bg-color">ghs</span>
+                            <a href="/tags/WPF/" target="_blank">
+                                <span class="chip bg-color">WPF</span>
                             </a>
                         
-                            <a href="/tags/智能吊挂/" target="_blank">
-                                <span class="chip bg-color">智能吊挂</span>
+                            <a href="/tags/WPF异常补获/" target="_blank">
+                                <span class="chip bg-color">WPF异常补获</span>
                             </a>
                         
                     </div>
@@ -397,8 +394,8 @@ contents=0,next_workstation=0,accepted_by_node=0,previous_contents=0
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/YIN/" class="post-category" target="_blank">
-                                YIN
+                            <a href="/categories/Net/" class="post-category" target="_blank">
+                                .Net
                             </a>
                         
                     </div>
@@ -409,7 +406,7 @@ contents=0,next_workstation=0,accepted_by_node=0,previous_contents=0
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-08-16
+                    2019-08-17
                 </div>
 
                 
@@ -425,431 +422,84 @@ contents=0,next_workstation=0,accepted_by_node=0,previous_contents=0
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="吊挂基础数据配置"><a href="#吊挂基础数据配置" class="headerlink" title="吊挂基础数据配置"></a>吊挂基础数据配置</h3><ul>
-<li><p>重置pusher_info参数 [pusher_info]</p>
-<p>contents=0,next_workstation=0,accepted_by_node=0,previous_contents=0</p>
-</li>
-<li><p>清除报警信息[appeal_records]   </p>
-<p>isfirsthanger=0,online=0,Clocked_In=0,is_register_full=0,is_station_full=0</p>
-</li>
-<li><p>清除链条上数量-保存链条数量[rtd_info]</p>
-</li>
-<li><p>清除链条上数量-不保存链条数量[rtd_info]</p>
-<p>recv_on_chain=0,isfirsthanger=0,online=0,Clocked_In=0,is_register_full=0,is_station_full=0</p>
-</li>
-</ul>
-<h5 id="基础数据"><a href="#基础数据" class="headerlink" title="基础数据"></a>基础数据</h5><ol>
-<li>工序 [Operation_Codes]</li>
-<li>尺码 [Size_Master]</li>
-<li>颜色 [Colour_Master]</li>
-<li>客户信息[Customer]</li>
-<li>员工信息[Employee_Master]</li>
-<li>订单信息[Style_order]</li>
-<li>款式信息[Style_master]</li>
-<li>款式工艺流程[Style_Operations]</li>
-<li>系统参数配置[Parameters]</li>
-</ol>
-<h5 id="其他配置表"><a href="#其他配置表" class="headerlink" title="其他配置表"></a>其他配置表</h5><ol>
-<li><p>线信息[Line_Information]</p>
-</li>
-<li><p>站信息[RTD_Info]</p>
-</li>
-<li><p>衣架线路图</p>
-<ol>
-<li>主表[Style_loading]</li>
-<li>款式工艺流程[Style_Operations]</li>
-<li>款式站位信息[Style_Route_Detail]</li>
-</ol>
-</li>
-<li><p>衣架流动</p>
-<ol>
-<li>当前衣架流动信息 [Hanger_Master]</li>
-<li>衣架流动历史信息 [Hanger_Detail]</li>
-<li>返工[QC_Hanger_Routing]</li>
-</ol>
-</li>
-<li><p>桥接配置</p>
-<ol>
-<li><p>Bridge_Information（从哪条线哪个站，要去哪条线哪个站）</p>
-<table>
-<thead>
-<tr>
-<th>Id    </th>
-<th>From_Line</th>
-<th>From_Station</th>
-<th>To_Line</th>
-<th>To_Station</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>主键</td>
-<td>从哪条线</td>
-<td>从哪个站</td>
-<td>去哪条线</td>
-<td>去哪个站</td>
-</tr>
-</tbody></table>
-</li>
-</ol>
-</li>
-</ol>
-<ol start="2">
-<li><p>Bridge_Route（从当前线去下一条线要经过哪条线）</p>
-<table>
-<thead>
-<tr>
-<th>Id</th>
-<th>iNextLineNo</th>
-<th>iCurBgLineNo</th>
-<th>iCurBgStationNo</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>主键</td>
-<td>去下一条线</td>
-<td>从当前线</td>
-<td>经过哪条线</td>
-</tr>
-</tbody></table>
-</li>
-</ol>
-<ol start="6">
-<li><p>初始化杆值配置</p>
-<ol>
-<li><p>【线参数配置】[Hardware_Configuration] 总杆数配置<strong>！！！！！！重要！！！！！</strong></p>
-<table>
-<thead>
-<tr>
-<th>功能</th>
-<th>字段</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>总杆数量</td>
-<td>Pushers</td>
-</tr>
-<tr>
-<td>推杆器间距</td>
-<td>Distance_Between_Pushers</td>
-</tr>
-<tr>
-<td>推杆器时间间隔</td>
-<td>Time_Between_Pushers</td>
-</tr>
-<tr>
-<td>MotorLAN光电开关允许误差</td>
-<td>Sensor_Timeout</td>
-</tr>
-<tr>
-<td>进站气阀开关时长</td>
-<td>In_Feed_Duration</td>
-</tr>
-<tr>
-<td>出站气阀开关时长</td>
-<td>Out_Feed_Duration</td>
-</tr>
-<tr>
-<td>总工作站数</td>
-<td>Number_Of_Workstations</td>
-</tr>
-<tr>
-<td>回归站杠号</td>
-<td>Rfid_Pusher</td>
-</tr>
-<tr>
-<td>推杆最大时间间隔</td>
-<td>Max_Time_Between_Pushers</td>
-</tr>
-<tr>
-<td>推杆最小时间间隔</td>
-<td>Min_Time_Between_Pushers</td>
-</tr>
-<tr>
-<td>防抖动延时</td>
-<td>Prevent_jitter_Delay</td>
-</tr>
-<tr>
-<td>条屏通信串口</td>
-<td>iSerial_Port</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>【推杆参数】[Workstation_Hardware_Configuration]（系统硬件参数配置）</p>
-<table>
-<thead>
-<tr>
-<th>功能</th>
-<th>字段</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>线</td>
-<td>Line_Number</td>
-</tr>
-<tr>
-<td>工作站编号</td>
-<td>Workstation</td>
-</tr>
-<tr>
-<td>进推杆器号</td>
-<td>In_Feed_Pusher</td>
-</tr>
-<tr>
-<td>进推杆器与摆头距离</td>
-<td>In_Feed_Distance</td>
-</tr>
-<tr>
-<td>出推杆器号</td>
-<td>Out_Feed_Pusher</td>
-</tr>
-<tr>
-<td>出推杆器与摆头距离</td>
-<td>Out_Feed_Distance</td>
-</tr>
-<tr>
-<td>IP地址</td>
-<td>Ip_Addr</td>
-</tr>
-<tr>
-<td>是否允许衣架出站</td>
-<td>bHangerOut</td>
-</tr>
-<tr>
-<td>进站位与大传感器之间的杆数</td>
-<td>In_Feed_Pushers_from_Sensor</td>
-</tr>
-<tr>
-<td>进站推杆间距</td>
-<td>In_Feed_Distance_To_Next_Pusher</td>
-</tr>
-<tr>
-<td>出站位与大传感器之间的杆数</td>
-<td>Out_Feed_Pushers_From_Sensor</td>
-</tr>
-<tr>
-<td>出站推杆间距</td>
-<td>Out_Feed_Distance_To_Next_Pusher</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>[RTD_Info]（线别配置）</p>
-<ol>
-<li><p>Line_Number</p>
-</li>
-<li><p>Workstation</p>
-</li>
-<li><p>In_Feed_Pusher「进站推杆间距」</p>
-</li>
-<li><p>Out_Feed_Pusher「出站推杆间距」</p>
-<p>注：In_Feed_Pusher，Out_Feed_Pusher与Workstation_Hardware_Configuration保持一致</p>
-</li>
-</ol>
-</li>
-<li><p>计算规则</p>
-<ol>
-<li>进出站推杆杆数<ol>
-<li>从大传感器逆时针数杆的数目至站位</li>
-</ol>
-</li>
-<li>进出站推杆间距<ol>
-<li>进站：<ol>
-<li>大于200mm，以当前杆号为准（200+当前杆到进站口的距离-200)</li>
-<li>小到200mm，加一杆（400)加少于200的值，再减200</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>出站：<ol>
-<li>后一杆加两杆（大概数据在800-1000） </li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<h3 id="数据迁移"><a href="#数据迁移" class="headerlink" title="数据迁移"></a>数据迁移</h3><ol>
-<li><p>涉及到的表（<strong>特别说明，以下表与以前的表唯一不同是新增了ID列</strong>）</p>
-<table>
-<thead>
-<tr>
-<th>说明</th>
-<th>表名</th>
-<th>配置说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>用户登陆信息表</td>
-<td>Password_Security</td>
-<td>复制</td>
-</tr>
-<tr>
-<td>员工信息表</td>
-<td>Employee_Master</td>
-<td>复制</td>
-</tr>
-<tr>
-<td>线别配置表</td>
-<td>Line_Information</td>
-<td>复制</td>
-</tr>
-<tr>
-<td>工作站表</td>
-<td>RTD_Info</td>
-<td>复制+IP配置</td>
-</tr>
-<tr>
-<td>系统参数表</td>
-<td>Parameters</td>
-<td>复制</td>
-</tr>
-<tr>
-<td>推杆参数表</td>
-<td>Pusher_Info</td>
-<td>复制</td>
-</tr>
-<tr>
-<td>硬件配置表</td>
-<td>Hardware_Configuration</td>
-<td>复制</td>
-</tr>
-<tr>
-<td>工作站配置表</td>
-<td>Workstation_Hardware_Configuration</td>
-<td>复制</td>
-</tr>
-<tr>
-<td>桥接信息表</td>
-<td>Bridge_Information</td>
-<td>清空重配</td>
-</tr>
-<tr>
-<td>桥接路由表</td>
-<td>Bridge_Route</td>
-<td>清空重配</td>
-</tr>
-</tbody></table>
-<p><strong>以上注意点</strong></p>
-<ol>
-<li><p>以上表都有加ID主键，请添加时使用 <code>SELECT 0,* FROM xxx</code> 其中0为ID列。</p>
-</li>
-<li><p>线别复制完成，确认<code>motolan IP,总站数，起始站号</code></p>
-</li>
-<li><p>工作站复制完成，确认 <code>下位机的IP地址，一般1号站为101,2号站为102...</code></p>
-</li>
-<li><p>推杆参数<code>[Pusher_Info]</code>与硬件配置表<code>[Hardware_Configuration]</code>所设置的<code>推杆总数是否匹配</code></p>
-</li>
-<li><p><code>Workstation_Hardware_Configuration</code> 配置推杆进出站参数，一般不准备配置这里</p>
-<p><strong><em>一定要先核对总杆数是否正确，常规我们设置的是23杆，如果超过23杆，第23杆会做减1处理</em></strong></p>
-</li>
-<li><p>控制是否出站很多核心参数都在rtd_info里面，关键SQL</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">declare</span> <span class="token variable">@less_stock</span> <span class="token keyword">int</span><span class="token punctuation">,</span>
-                <span class="token variable">@less_station</span> <span class="token keyword">int</span><span class="token punctuation">,</span>
-                <span class="token variable">@less_station_line</span> <span class="token keyword">int</span><span class="token punctuation">,</span>
-                <span class="token variable">@distribute_time</span> <span class="token keyword">datetime</span>
-        <span class="token keyword">set</span> <span class="token variable">@less_stock</span><span class="token operator">=</span><span class="token number">0</span>
-        <span class="token keyword">set</span> <span class="token variable">@less_station</span><span class="token operator">=</span><span class="token number">0</span>
-        <span class="token keyword">set</span> <span class="token variable">@less_station_line</span><span class="token operator">=</span><span class="token number">0</span>
-        <span class="token keyword">set</span> <span class="token variable">@distribute_time</span><span class="token operator">=</span><span class="token string">''</span>
-        <span class="token keyword">select</span> <span class="token keyword">top</span> <span class="token number">1</span> 
-            <span class="token variable">@less_stock</span><span class="token operator">=</span><span class="token number">b</span><span class="token punctuation">.</span>stock_recv_on_chain<span class="token punctuation">,</span>
-            <span class="token variable">@less_station</span><span class="token operator">=</span><span class="token number">a</span><span class="token punctuation">.</span>station_number<span class="token punctuation">,</span>
-            <span class="token variable">@less_station_line</span><span class="token operator">=</span><span class="token number">a</span><span class="token punctuation">.</span>line_number<span class="token punctuation">,</span>
-            <span class="token variable">@distribute_time</span><span class="token operator">=</span><span class="token number">b</span><span class="token punctuation">.</span>Distribute_Time
-        <span class="token keyword">from</span> style_route_detail <span class="token number">a</span> <span class="token punctuation">,</span>stock_view <span class="token number">b</span>
-            <span class="token keyword">where</span> <span class="token number">a</span><span class="token punctuation">.</span>route_id<span class="token operator">=</span><span class="token number">1350</span>
-            <span class="token operator">and</span> <span class="token number">a</span><span class="token punctuation">.</span>line_number<span class="token operator">=</span><span class="token number">b</span><span class="token punctuation">.</span>line_number
-            <span class="token operator">and</span> <span class="token number">a</span><span class="token punctuation">.</span>station_number<span class="token operator">=</span><span class="token number">b</span><span class="token punctuation">.</span>workstation 
-            <span class="token operator">and</span> <span class="token punctuation">(</span><span class="token number">b</span><span class="token punctuation">.</span><span class="token keyword">status</span><span class="token operator">=</span><span class="token string">'0'</span> <span class="token operator">or</span> <span class="token number">b</span><span class="token punctuation">.</span><span class="token keyword">status</span> <span class="token operator">is</span> <span class="token boolean">null</span> <span class="token operator">or</span> <span class="token number">b</span><span class="token punctuation">.</span><span class="token keyword">status</span><span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span>
-            <span class="token operator">and</span> <span class="token number">a</span><span class="token punctuation">.</span>process_order<span class="token operator">=</span><span class="token number">3</span>
-            <span class="token operator">and</span> <span class="token number">b</span><span class="token punctuation">.</span>is_station_full<span class="token operator">=</span><span class="token number">0</span>
-            <span class="token operator">and</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">=</span><span class="token number">0</span> <span class="token operator">or</span> <span class="token number">1</span><span class="token operator">=</span><span class="token number">1</span> <span class="token operator">and</span> <span class="token number">b</span><span class="token punctuation">.</span>stock_recv_on_chain<span class="token operator">&lt;</span><span class="token number">b</span><span class="token punctuation">.</span>Station_Full_Numbers<span class="token punctuation">)</span>
-            <span class="token operator">and</span> <span class="token punctuation">(</span><span class="token number">a</span><span class="token punctuation">.</span>receive_mode <span class="token operator">is</span> <span class="token boolean">null</span> <span class="token operator">or</span> <span class="token number">a</span><span class="token punctuation">.</span>receive_mode <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token operator">and</span> <span class="token punctuation">(</span><span class="token number">b</span><span class="token punctuation">.</span>set_colour<span class="token operator">=</span><span class="token number">4</span> <span class="token operator">or</span> <span class="token number">b</span><span class="token punctuation">.</span>set_colour<span class="token operator">=</span><span class="token string">'任意'</span> <span class="token operator">or</span> <span class="token number">b</span><span class="token punctuation">.</span>set_colour <span class="token operator">is</span> <span class="token boolean">null</span><span class="token punctuation">)</span> <span class="token operator">and</span>                         <span class="token punctuation">(</span><span class="token number">b</span><span class="token punctuation">.</span>set_size<span class="token operator">=</span><span class="token number">5</span> <span class="token operator">or</span> <span class="token number">b</span><span class="token punctuation">.</span>set_size<span class="token operator">=</span><span class="token string">'任意'</span> <span class="token operator">or</span> <span class="token number">b</span><span class="token punctuation">.</span>set_size <span class="token operator">is</span> <span class="token boolean">null</span><span class="token punctuation">)</span>
-                <span class="token operator">and</span> <span class="token number">b</span><span class="token punctuation">.</span>stock_recv_on_chain<span class="token operator">&lt;</span><span class="token number">4</span>
-            <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token number">b</span><span class="token punctuation">.</span>stock_recv_on_chain <span class="token keyword">asc</span> <span class="token punctuation">,</span>Distribute_Time <span class="token keyword">asc</span>
-
-            <span class="token keyword">select</span> <span class="token variable">@less_stock</span><span class="token punctuation">,</span>  <span class="token variable">@less_station</span></code></pre>
-<ol>
-<li><p>其中，接收模式，现在为（0,1,2)，</p>
-</li>
-<li><p>是否满站：is_station_full</p>
-</li>
-<li><p>这一句也是相当重要的： b.stock_recv_on_chain&lt;b.Station_Full_Numbers </p>
-</li>
-<li><p>这个主要为指定颜色尺码进站，</p>
-<p>b.set_colour=4 or b.set_colour=’任意’ or b.set_colour is null) and (b.set_size=5 or b.set_size=’任意’ or b.set_size is null</p>
-</li>
-</ol>
-</li>
-<li><p>数据处理</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">UPDATE</span> RTD_Info <span class="token keyword">SET</span> 
-Set_Colour<span class="token operator">=</span><span class="token boolean">null</span><span class="token punctuation">,</span>
-Set_Size<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>
-Is_Register_Full<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>
-Is_Station_Full<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>
-recv_on_chain<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>
-isfirsthanger<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>
-online<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>
-Clocked_In<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token keyword">UPDATE</span> RTD_Info <span class="token keyword">SET</span> <span class="token keyword">Status</span><span class="token operator">=</span><span class="token string">'0'</span> <span class="token keyword">WHERE</span> <span class="token keyword">Status</span><span class="token operator">=</span><span class="token string">'接收'</span><span class="token punctuation">;</span>
-<span class="token keyword">UPDATE</span> RTD_Info <span class="token keyword">SET</span> <span class="token keyword">Status</span><span class="token operator">=</span><span class="token string">'1'</span> <span class="token keyword">WHERE</span> <span class="token keyword">Status</span><span class="token operator">=</span><span class="token string">'不接收'</span><span class="token punctuation">;</span>
-<span class="token keyword">UPDATE</span> RTD_Info <span class="token keyword">SET</span> <span class="token keyword">Status</span><span class="token operator">=</span><span class="token string">'2'</span> <span class="token keyword">WHERE</span> <span class="token keyword">Status</span><span class="token operator">=</span><span class="token string">'备用站'</span><span class="token punctuation">;</span></code></pre>
-<p><strong><em>检查Stock_view视图，关键点，satus,set_color,setsize</em></strong></p>
-</li>
-<li><p>其他配置项</p>
-<ol>
-<li>数据库参数配置第3项，IP地址应为 <code>192.168.1.99</code></li>
-<li>数据库参数配置第66项，MAC地址应为<code>UDP</code>服务器MAC地址。</li>
-<li>UDP服务器IP设置，IP地址应为：192.168.1.99,并且一定要设置子网掩码与网关，不然UDP可能故障。</li>
-<li>下未及原则上IP地址为对应站号，比如第五站，那IP地址应为：192.168.1.105，也就是100+站位号</li>
-<li>所有单线站位必须连续，比如1-5,6-20,根据线别配置起始线以及对应总站数。切不可使用不连续站位。</li>
-</ol>
-</li>
-</ol>
-<h3 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h3><ol>
-<li>程序无法启动或主控无法启动<ol>
-<li>线别对应站位是否配置正确。站位具体计算在 <code>line_information</code> 中起始站与站数量中体现。但是实际应用回取 <code>rtd_info</code>  所以请保证 <code>line_information</code>与<code>rtd_info</code>中站点的匹配。</li>
-</ol>
-</li>
-<li>首站不出站<ol>
-<li>首先看日志确认当前衣架号，可以看日志，看回归…</li>
-<li>查看 <code>Hanger_Master</code>表中是否有记录</li>
-<li>如果有记录请确认记录的 <code>Next_Station</code>是否正常。</li>
-<li>检查存储过程<code>Pro_Fetch_Route_check</code> 确认当前衣架是否为首站。</li>
-<li>检查存储过程 <code>Pro_Fetch_Route</code> 下一站流程是否正常。</li>
-</ol>
-</li>
-<li>其他站不出站<ol>
-<li>与首站不出站类似，只是不需要检查 <code>Pro_Fetch_Route_check</code></li>
-<li><code>Pro_Fetch_Route</code> 首站 <code>flag</code>为1，其他为0,</li>
-</ol>
-</li>
-<li>不出站不提示<ol>
-<li>[bSend20_Cammand] 参数表中 para_id = 48 是否开启[1：开启，0：未开启]</li>
-</ol>
-</li>
-<li>站到站不起作用<ol>
-<li>[iRedoToStation] 参数表中 para_id = 88 是否开启[1：开启，0：未开启]</li>
-</ol>
-</li>
-<li>跨线站到站<ol>
-<li>数据库 <code>Hanger_Master</code> 中ToLine,ToStaiton 用作临时存储。<code>Pro_Fetch_Route</code>存储过程中处理</li>
-</ol>
-</li>
-<li>多工序返工<ol>
-<li>将返工信息存储于临时暂存区，指令 <code>GlobalCmd.MUILT_REDO</code></li>
-<li>确认返工 <code>GlobalCmd.MUILT_REDO_COMMIT</code> 读取暂存区数据，执行正常返工流程。</li>
-<li>返工涉及到的表 <code>QC_Hanger_Routing</code> 表中is_redo 确认是否返工完成。</li>
-</ol>
-</li>
-<li>其他<ol>
-<li>请参见初始化流程</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
+                <p><strong>原文连接：</strong><code>https://mp.weixin.qq.com/s/sT92C26pRZpc7fWawQpdug</code></p>
+<h3 id="多线程的操作在程序中也是比较常见的，比如开启一个线程执行一些比较耗时的操作-IO操作-，而主线程继续执行当前操作，不会造成主线程阻塞。线程又分为前台线程和后台线程，区别是：整个程序必须要运行完前台线程才会退出，而后台线程会在程序退出的时候结束掉。Thread默认创建的是前台线程，而ThreadPool和Task默认创建的是后台线程，Thread可以通过设置-IsBackground-属性将线程设置为后台线程。"><a href="#多线程的操作在程序中也是比较常见的，比如开启一个线程执行一些比较耗时的操作-IO操作-，而主线程继续执行当前操作，不会造成主线程阻塞。线程又分为前台线程和后台线程，区别是：整个程序必须要运行完前台线程才会退出，而后台线程会在程序退出的时候结束掉。Thread默认创建的是前台线程，而ThreadPool和Task默认创建的是后台线程，Thread可以通过设置-IsBackground-属性将线程设置为后台线程。" class="headerlink" title="多线程的操作在程序中也是比较常见的，比如开启一个线程执行一些比较耗时的操作(IO操作)，而主线程继续执行当前操作，不会造成主线程阻塞。线程又分为前台线程和后台线程，区别是：整个程序必须要运行完前台线程才会退出，而后台线程会在程序退出的时候结束掉。Thread默认创建的是前台线程，而ThreadPool和Task默认创建的是后台线程，Thread可以通过设置 IsBackground 属性将线程设置为后台线程。"></a>多线程的操作在程序中也是比较常见的，比如开启一个线程执行一些比较耗时的操作(IO操作)，而主线程继续执行当前操作，不会造成主线程阻塞。线程又分为前台线程和后台线程，区别是：整个程序必须要运行完前台线程才会退出，而后台线程会在程序退出的时候结束掉。Thread默认创建的是前台线程，而ThreadPool和Task默认创建的是后台线程，Thread可以通过设置 IsBackground 属性将线程设置为后台线程。</h3><p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5W8JMHt8uy5QN5qFPTHFnnSn36mpfrpX1Hh9h6aP29gE2KmowibOkYaQ/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<pre><code></code></pre><p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5sbcua1JxTJXHYBgkeMiaA2MF1hiciatw6BotgXHkBp9WBkCjSeAq50gjQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<pre><code></code></pre><p>前台线程</p>
+<p>效果：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5Wp05HHsOoLGkTTa0Dx3jTv2RSwtKfCVRsLAUibTMORqfz6pWYNlLmjw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5W8JMHt8uy5QN5qFPTHFnnSn36mpfrpX1Hh9h6aP29gE2KmowibOkYaQ/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<pre><code></code></pre><p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5xI2GjkCbjwHIOWfRDMYGUxp8XbrWmL2YTEGBUnnTlI46Hl1iaiacel0A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<pre><code></code></pre><p>后台线程</p>
+<p>效果：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5CTWBTcpGwBDRL83ONNkF18owC3JN4jAaSm90tesqYqldf7SlyMhP5w/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<h2 id="下面来说一下几种开启多线程的方法："><a href="#下面来说一下几种开启多线程的方法：" class="headerlink" title="下面来说一下几种开启多线程的方法："></a>下面来说一下几种开启多线程的方法：</h2><h2 id="1、Thread"><a href="#1、Thread" class="headerlink" title="1、Thread"></a>1、Thread</h2><h3 id="1-1-开启一个线程，执行一个不带参数的方法"><a href="#1-1-开启一个线程，执行一个不带参数的方法" class="headerlink" title="1.1 开启一个线程，执行一个不带参数的方法"></a>1.1 开启一个线程，执行一个不带参数的方法</h3><p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5vSH5mWP9icBzpl2fTaWYTQMRBYibIoPKFoSc306vI9uN8TmmuSqHF9NA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<h3 id="1-2开启一个线程，执行带参数的方法"><a href="#1-2开启一个线程，执行带参数的方法" class="headerlink" title="1.2开启一个线程，执行带参数的方法"></a>1.2开启一个线程，执行带参数的方法</h3><p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5lo3KtdUz7GU01VOFia6bnApKzUTib7J5O1iaMJP3ibKbmGJBUSicPCfj5CQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<h2 id="2、ThreadPool"><a href="#2、ThreadPool" class="headerlink" title="2、ThreadPool"></a>2、ThreadPool</h2><h3 id="使用ThreadPool开启一个线程"><a href="#使用ThreadPool开启一个线程" class="headerlink" title="使用ThreadPool开启一个线程"></a>使用ThreadPool开启一个线程</h3><pre><code></code></pre><p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5cb7nHiaqRraic2mZ8xibYQb8nUwvhfJCRF6ba8jPqjXHhAHXicoeJETj2A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p>ThreadPool是Thread的一个升级版，ThreadPool是从线程池中获取线程，如果线程池中又空闲的元素，则直接调用，如果没有才会创建，而Thread则是会一直创建新的线程，要知道开启一个线程就算什么事都不做也会消耗大约1m的内存，是非常浪费性能的，接下来我们写一个例子来看一下二者的区别：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5ibFa9DSUWibV4H5N7q8ic6ibPQ3SEy9Z3nj4tos9RB7W6zsoAFzmDaZFjg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p>运行结果：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5lUvNwPnEuGdQpXgdlqSOGPfaVUevgB1nQdZ9IQoUptzcDXSeSpqRxQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p>我们可以看到每一个主线程表示id都是不同的，也就是说使用Thread开启线程每次都是新创建一个</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5ykKLEtKOk1dAOibQYicKCxIj3H9Q9qM0EwMAL6LJgiaqzmDuZic0MB87iag/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p>运行结果：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG57qtxFxHkzNg4GmibSaDyD1MvWzZXGanSIdXicUUECXvIg6aV89bj50HQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p>相信区别已经很明显了，这里我再说一下，线程池中一开始是没有一个线程的，使用ThreadPool开启一个线程之后，线程执行完毕，会加入到线程池中，后续需要再次开启线程的时候查看线程池中有没有空闲的线程，有则调用，没有则创建，如此循环</p>
+<h3 id="二者之间还有一个区别，就是ThreadPool可以操控线程的状态，比如等待线程完成，或者终止超时子线程操作"><a href="#二者之间还有一个区别，就是ThreadPool可以操控线程的状态，比如等待线程完成，或者终止超时子线程操作" class="headerlink" title="二者之间还有一个区别，就是ThreadPool可以操控线程的状态，比如等待线程完成，或者终止超时子线程操作"></a>二者之间还有一个区别，就是ThreadPool可以操控线程的状态，比如等待线程完成，或者终止超时子线程操作</h3><p>取消子线程操作</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5u9J1AlJ2UvZDG2JwQicb2Zdck29FnsVxgjdz5Urv2sw2iboslia1RuBKg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<pre><code></code></pre><p>感觉这个取消子线程的方法和设置一个全局变量，然后通过判断和更改全局变量的值，设置线程是否取消的效果一样</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5EgK7iayrhsLdiaibSa1sKryWaaBmvyHI3DY8UFTBhf5lroYCeNwUpfgMA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<h3 id="ThreadPool的其他操作感兴趣的可以自己搜索学一下，因为终止线程什么操作都是比较麻烦的，关于ThreadPool就不再多说了"><a href="#ThreadPool的其他操作感兴趣的可以自己搜索学一下，因为终止线程什么操作都是比较麻烦的，关于ThreadPool就不再多说了" class="headerlink" title="ThreadPool的其他操作感兴趣的可以自己搜索学一下，因为终止线程什么操作都是比较麻烦的，关于ThreadPool就不再多说了"></a>ThreadPool的其他操作感兴趣的可以自己搜索学一下，因为终止线程什么操作都是比较麻烦的，关于ThreadPool就不再多说了</h3><h2 id="3、Task"><a href="#3、Task" class="headerlink" title="3、Task"></a>3、Task</h2><h3 id="Task和ThreadPool是一样的，都是从线程池中取空闲的线程"><a href="#Task和ThreadPool是一样的，都是从线程池中取空闲的线程" class="headerlink" title="Task和ThreadPool是一样的，都是从线程池中取空闲的线程"></a>Task和ThreadPool是一样的，都是从线程池中取空闲的线程</h3><h3 id="使用Task开启一个线程"><a href="#使用Task开启一个线程" class="headerlink" title="使用Task开启一个线程"></a>使用Task开启一个线程</h3><p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG57qoC4hlrib1HEjO4GF9R1SB69wTYShXShx4tEmTOM6a1bRZWicgFYJBw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p>Run和StartNew方法都是返回一个Task类型的对象，代表当前开启的线程，如果方法有返回值</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5ibbrT4tHDVQv1s6LaiaBvkMYAssybG72qbhkpqUf5ZZIVLI7p1sUokpA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p>取消线程操作的话和ThreadPool取消线程操作一样</p>
+<p><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
+<p>等待所有线程执行完毕</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5OdLOsV4JHicJNcVtQRhZEuSRbAVZFUGU3C5xRvt2AXIPbYicBs9uhftA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5X1icR3ziamu7GK90cshELCHqicuVZ0Tk9Vl0YfRWSJIE65OgmnIGdHriag/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p>等待任意一个先线程执行完毕</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5VpGkxjavqO2xDOTjZYZ320TKQMaia83mQsF4yOmjzIdCWETf5srVVgA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
+<h2 id="对于Thread、ThreadPool和Task，如果要用多线程的话，优先使用Task，如果版本不支持Task，则考虑ThreadPool"><a href="#对于Thread、ThreadPool和Task，如果要用多线程的话，优先使用Task，如果版本不支持Task，则考虑ThreadPool" class="headerlink" title="对于Thread、ThreadPool和Task，如果要用多线程的话，优先使用Task，如果版本不支持Task，则考虑ThreadPool"></a>对于Thread、ThreadPool和Task，如果要用多线程的话，优先使用Task，如果版本不支持Task，则考虑ThreadPool</h2><h2 id="4、Parallel"><a href="#4、Parallel" class="headerlink" title="4、Parallel"></a>4、Parallel</h2><p>Parallel循环开启多线程，并行任务，对于多线程开启任务，开启的顺序都是不确定的</p>
+<h3 id="Parallel-Invoke"><a href="#Parallel-Invoke" class="headerlink" title="Parallel.Invoke()"></a>Parallel.Invoke()</h3><p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG54efUawae7PRpVFUHF4H4FHUvHeRmq9hMMbAWDAug9CoPkYfuZS1HTw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p>相当于</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5XBXQUCZfdfthBVbdscDaOSj9WlwMPDFRgF1uomORkibNmxlQyMNibialw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p>Invoke时也可以进行一些配置，例如配置线程池中只能最多保持一个线程</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5O9vYt6D1DQmTcRoMp1vfjzQXpibx2Ld3AiajdIicRKW6SjwVJwZd8DWBw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p>运行结果：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5gBgdtO9QFVkdm7d0UWR3bU51OscaCQe8Ddg6DSnXjkJfibomjUHYZfQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<h3 id="Parallel-For"><a href="#Parallel-For" class="headerlink" title="Parallel.For()"></a>Parallel.For()</h3><p><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
+<p>相当于</p>
+<p><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
+<p>相对于循环Task.Run()更加简洁</p>
+<h3 id="Parallel-ForEach"><a href="#Parallel-ForEach" class="headerlink" title="Parallel.ForEach()"></a>Parallel.ForEach()</h3><p>方法和foreach类似，不过是采用的是异步方式遍历，要想被Parallel.ForEach()必须实现IEnumerable接口</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5MGkwzfdGNSHE32ZhnUyuLkUuHOomm5soFNMqMic6EEYWG6TamJvJzUg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p>运行结果：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5G2h7uwLbvv5NSCy9dFK5mGNDfgicCQGJkGBk6IJjiaQCicaFiaHAe5LI6g/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p>停止循环的方法</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5jHlwEwzwJT49sycboiaYic9gWZBT5ibY63VZGBC5QEv8ZAE57spxmvvZw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
+<h2 id="5、Async、Await"><a href="#5、Async、Await" class="headerlink" title="5、Async、Await"></a>5、Async、Await</h2><p>async和await关键字用来实现异步编程，async用来修饰方法，await用来调用方法，await关键字必须出现在有async的方法中，await调用的方法可以不用async关键字修饰，但是返回值类型必须为Task<t>类型，下面来说一下用法：</t></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5D5TMa9QrZrxcViczymiaaCYFWAIJdeNhPcn93fEa8UXwmWibUpu88dY0A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p>await开启异步和Task开启异步还是有区别的</p>
+<p>例如下面两个例子</p>
+<p>我们先用Task开启异步编程</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG59lajcV69xVicibjYpNyhw6Sctc2CHKMmHLYD3YNw06rPczvhUicyTygYA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p>我们这是可以大胆的猜测一下显示的顺寻</p>
+<p>大致应该是：主线程开始==》异步开始==》(子线程开始|异步结束）=》（子线程开始|主线程结束）==》（子线程开始）=》子线程结束</p>
+<p>运行结果：</p>
+<p><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
+<p>果然和我们猜想的差不多，大致顺序没有变，接下来我们用async和await关键字开启异步</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5aRBKyaD6A5NH5PB3orZJUXibJ7dUDRZvXk7LuZ7CO35J6SlvG0fqGtg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p> 按理说顺序也会是：主线程开始==》异步开始==》(子线程开始|异步结束）=》（子线程开始|主线程结束）==》（子线程开始）=》子线程结束</p>
+<p>但事实是：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5u4412ldWbupxHkIJV8Ah3OZn4hTYx2yicElOoWkMAib6TVfkMzjJpuZQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<h3 id="Task和async-amp-await关键字的区别就此处"><a href="#Task和async-amp-await关键字的区别就此处" class="headerlink" title="Task和async&amp;await关键字的区别就此处"></a>Task和async&amp;await关键字的区别就此处</h3><p>首先说一下梳理一下Task的执行过程（画图画的很粗糙，重点是流程）</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5xYPpFSCZULrDlpJ8S9bs7AJJeeQJVdBmjVqJ9L9rRTkrZfHhTomPCg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p>然后我们再来看一下async和await的执行过程</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/PsoQuRYhtVibm4d8SUvraxpfCBeIrrkG5tia9LYpKmHX40iaoNyPSvjyskXG5wBKsFmiaTiblgk9Y5GTmFvhA9k8HWQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p>现在问题已经很清晰了，就是当主线程执行到await AsyncDemo2()时，会像是碰到了return语句一样，退出当前方法(AsyncDemo1)，将当前方法(AsyncDemo1)的后续执行语句交给子线程来执行，子线程会在执行完AsyncDemo2方法之后，返回过来执行AsyncDemo1方法。</p>
+<p>这一点就是await与Task异步编程的不同点</p>
 
             </div>
             <hr/>
@@ -1008,9 +658,9 @@ Clocked_In<span class="token operator">=</span><span class="token number">0</spa
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《智能吊挂系统使用说明》
+                    《Thread、ThreadPool、Task、Parallel、Async和Await基本用法、区别以及弊端》
                 </span> by
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/08/16/ghs/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/08/17/csharp-thread/" property="cc:attributionName"
                rel="cc:attributionURL">
                 zhurg
             </a> is licensed under a
@@ -1050,9 +700,10 @@ Clocked_In<span class="token operator">=</span><span class="token number">0</spa
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2019/08/17/csharp-thread/">
                     <div class="card-image">
@@ -1070,9 +721,9 @@ Clocked_In<span class="token operator">=</span><span class="token number">0</spa
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-17
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-17
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1085,6 +736,7 @@ Clocked_In<span class="token operator">=</span><span class="token number">0</spa
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1107,19 +759,19 @@ Clocked_In<span class="token operator">=</span><span class="token number">0</spa
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/08/16/yin-framework/">
+                <a href="/2019/08/16/ghs/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="yin_framework">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="智能吊挂系统使用说明">
                         
-                        <span class="card-title">yin_framework</span>
+                        <span class="card-title">智能吊挂系统使用说明</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            .net 常规基础工具类库使用。
+                            吊挂中常用的表，以及旧版程序升级到新版本的迁移注意事项。
                         
                     </div>
                     <div class="publish-info">
@@ -1130,8 +782,8 @@ Clocked_In<span class="token operator">=</span><span class="token number">0</spa
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Net，YIN-Framework/" class="post-category" target="_blank">
-                                    .Net，YIN Framework
+                            <a href="/categories/YIN/" class="post-category" target="_blank">
+                                    YIN
                                 </a>
                             
                             
@@ -1141,12 +793,12 @@ Clocked_In<span class="token operator">=</span><span class="token number">0</spa
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Net/" target="_blank">
-                        <span class="chip bg-color">.Net</span>
+                    <a href="/tags/ghs/" target="_blank">
+                        <span class="chip bg-color">ghs</span>
                     </a>
                     
-                    <a href="/tags/Framework/" target="_blank">
-                        <span class="chip bg-color">Framework</span>
+                    <a href="/tags/智能吊挂/" target="_blank">
+                        <span class="chip bg-color">智能吊挂</span>
                     </a>
                     
                 </div>
