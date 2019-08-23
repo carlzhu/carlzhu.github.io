@@ -850,6 +850,41 @@ Clocked_In<span class="token operator">=</span><span class="token number">0</spa
 </ol>
 </li>
 </ol>
+<h3 id="初始化脚本"><a href="#初始化脚本" class="headerlink" title="初始化脚本"></a>初始化脚本</h3><pre class=" language-sql"><code class="language-sql"><span class="token keyword">delete</span> Hanger_Master
+<span class="token keyword">delete</span> Hanger_Details
+<span class="token keyword">delete</span> Hanger_Details_History
+<span class="token keyword">delete</span> Daily_ODP_Detail
+<span class="token keyword">delete</span> Daily_ODP
+<span class="token keyword">delete</span> Style_Route_Master
+<span class="token keyword">delete</span> Style_Route_Detail
+<span class="token keyword">delete</span> Style_Operations
+<span class="token keyword">delete</span> Style_Loading
+
+<span class="token keyword">UPDATE</span> <span class="token punctuation">[</span>dbo<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token punctuation">[</span>RTD_Info<span class="token punctuation">]</span>
+   <span class="token keyword">SET</span> 
+      <span class="token punctuation">[</span>Online<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token number">0</span>
+      <span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token keyword">Status</span><span class="token punctuation">]</span> <span class="token operator">=</span><span class="token number">0</span>
+      <span class="token punctuation">,</span><span class="token punctuation">[</span>Is_Station_Full<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+      <span class="token punctuation">,</span><span class="token punctuation">[</span>Quantity_Produced<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+      <span class="token punctuation">,</span><span class="token punctuation">[</span>Efficiency<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+      <span class="token punctuation">,</span><span class="token punctuation">[</span>Total_Quantity_Produced<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+      <span class="token punctuation">,</span><span class="token punctuation">[</span>Total_Efficiency<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token number">0</span>
+      <span class="token punctuation">,</span><span class="token punctuation">[</span>Stock<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+      <span class="token punctuation">,</span><span class="token punctuation">[</span>Is_Register_Full<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token number">0</span>
+      <span class="token punctuation">,</span><span class="token punctuation">[</span>Redo_Count<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+      <span class="token punctuation">,</span><span class="token punctuation">[</span>Station_Full_Numbers<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token number">100</span>
+      <span class="token punctuation">,</span><span class="token punctuation">[</span>Station_Less_Numbers<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token number">0</span>
+      <span class="token punctuation">,</span><span class="token punctuation">[</span>Set_Colour<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token boolean">NULL</span>
+      <span class="token punctuation">,</span><span class="token punctuation">[</span>Set_Size<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">NULL</span>
+
+
+
+
+<span class="token keyword">update</span> RTD_Info  <span class="token keyword">set</span> Out_Feed_Pusher <span class="token operator">=</span><span class="token number">b</span><span class="token punctuation">.</span>Out_Feed_Pushers_From_Sensor <span class="token keyword">from</span> 
+Workstation_Hardware_Configuration <span class="token number">b</span> <span class="token keyword">where</span> RTD_Info<span class="token punctuation">.</span> Workstation<span class="token operator">=</span><span class="token number">b</span><span class="token punctuation">.</span>Workstation <span class="token operator">and</span> <span class="token number">b</span><span class="token punctuation">.</span>Id<span class="token operator">></span><span class="token number">8775</span>
+
+<span class="token keyword">update</span> RTD_Info  <span class="token keyword">set</span> In_Feed_Pusher <span class="token operator">=</span><span class="token number">b</span><span class="token punctuation">.</span>In_Feed_Pushers_from_Sensor <span class="token keyword">from</span> 
+Workstation_Hardware_Configuration <span class="token number">b</span> <span class="token keyword">where</span> RTD_Info<span class="token punctuation">.</span> Workstation<span class="token operator">=</span><span class="token number">b</span><span class="token punctuation">.</span>Workstation <span class="token operator">and</span> <span class="token number">b</span><span class="token punctuation">.</span>Id<span class="token operator">></span><span class="token number">8775</span></code></pre>
 
             </div>
             <hr/>
