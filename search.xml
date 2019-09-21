@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>win10_ltsc</title>
+      <link href="/2019/09/21/win10-ltsc/"/>
+      <url>/2019/09/21/win10-ltsc/</url>
+      
+        <content type="html"><![CDATA[<p><code>slmgr -ipk M7XTQ-FN8P6-TTKYV-9D4CC-J462D</code>slmgr -skms kms.03k.org<code></code>slmgr -ato`</p><p>最后的激活说明：</p><p>熟悉上述流程的网友应该知道这是KMS激活，每次激活有效期为半年也就是半年后需要再次按照教程激活下。</p><p>当然相比KMS激活如果你能获得 Windows 10 LTSC 2019 的激活密钥那是最好，否则使用KMS激活也可以。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> .Net，YIN Framework </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> WIN10 </tag>
+            
+            <tag> LTSC </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Thread、ThreadPool、Task、Parallel、Async和Await基本用法、区别以及弊端</title>
       <link href="/2019/08/17/csharp-thread/"/>
       <url>/2019/08/17/csharp-thread/</url>

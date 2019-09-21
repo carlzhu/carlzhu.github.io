@@ -4,14 +4,10 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Thread、ThreadPool、Task、Parallel、Async和Await基本用法、区别以及弊端, ZHURG">
-    <meta name="description" content="Look look
-using System;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespa">
+    <meta name="keywords" content="win10_ltsc, ZHURG">
+    <meta name="description" content="slmgr -ipk M7XTQ-FN8P6-TTKYV-9D4CC-J462Dslmgr -skms kms.03k.orgslmgr -ato`
+最后的激活说明：
+熟悉上述流程的网友应该知道这是KMS激活，每次激活有效期为半年也就是半年">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +15,7 @@ namespa">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Thread、ThreadPool、Task、Parallel、Async和Await基本用法、区别以及弊端 | ZHURG</title>
+    <title>win10_ltsc | ZHURG</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -266,13 +262,13 @@ namespa">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Thread、ThreadPool、Task、Parallel、Async和Await基本用法、区别以及弊端
+                        win10_ltsc
                     </div>
                 </div>
             </div>
@@ -383,12 +379,12 @@ namespa">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/WPF/" target="_blank">
-                                <span class="chip bg-color">WPF</span>
+                            <a href="/tags/WIN10/" target="_blank">
+                                <span class="chip bg-color">WIN10</span>
                             </a>
                         
-                            <a href="/tags/WPF异常补获/" target="_blank">
-                                <span class="chip bg-color">WPF异常补获</span>
+                            <a href="/tags/LTSC/" target="_blank">
+                                <span class="chip bg-color">LTSC</span>
                             </a>
                         
                     </div>
@@ -399,8 +395,8 @@ namespa">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Net/" class="post-category" target="_blank">
-                                .Net
+                            <a href="/categories/Net，YIN-Framework/" class="post-category" target="_blank">
+                                .Net，YIN Framework
                             </a>
                         
                     </div>
@@ -411,7 +407,7 @@ namespa">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-08-17
+                    2019-09-21
                 </div>
 
                 
@@ -427,297 +423,10 @@ namespa">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>Look look</strong></p>
-<pre class=" language-c#"><code class="language-c#">using System;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace ThTest
-{
-    class Program
-    {
-
-        /*
-         多线程的操作在程序中也是比较常见的，比如开启一个线程执行一些比较耗时的操作(IO操作)，
-         而主线程继续执行当前操作，不会造成主线程阻塞。线程又分为前台线程和后台线程，
-         区别是：整个程序必须要运行完前台线程才会退出，而后台线程会在程序退出的时候结束掉。
-         Thread默认创建的是前台线程，而ThreadPool和Task默认创建的是后台线程，
-         Thread可以通过设置 IsBackground 属性将线程设置为后台线程。
-         */
-
-        static void Main(string[] args)
-        {
-            //1、Thread
-            {
-                //无参多线程处理
-                Thread thread = new Thread(new ThreadStart(ConsoleLog));
-                thread.Start();
-
-                //有参数的
-                Thread thread1 = new Thread(new ParameterizedThreadStart(ParaConsoleLog));
-
-                //设置为后台进程
-                thread1.IsBackground = true;
-
-                //启动线程
-                thread1.Start("xxxx");
-
-            }
-            //2、ThreadPool
-            {
-                //使用ThreadPool开启一个线程
-
-                //这个是当前线程的唯一ID
-                int id = Thread.CurrentThread.ManagedThreadId;
-
-                //无参数的
-                ThreadPool.QueueUserWorkItem(new WaitCallback(obj =>
-                {
-                    //to do something
-                }));
-                //demo
-                ThreadPool.QueueUserWorkItem(new WaitCallback(obj => ConsoleLog()));
-
-
-                //有参数的
-                ThreadPool.QueueUserWorkItem(new WaitCallback(obj => { }), "参数");
-                //demo
-                ThreadPool.QueueUserWorkItem(new WaitCallback(obj => ParaConsoleLog(obj)), "参数");
-
-
-                /*
-                 线程池中一开始是没有一个线程的，使用ThreadPool开启一个线程之后，线程执行完毕，
-                 会加入到线程池中，后续需要再次开启线程的时候查看线程池中有没有空闲的线程，有则调用，
-                 没有则创建，如此循环二者之间还有一个区别，就是ThreadPool可以操控线程的状态，
-                 比如等待线程完成，或者终止超时子线程操作
-                 */
-                {
-                    //取消子线程操作
-                    CancellationTokenSource cts = new CancellationTokenSource();
-                    ThreadPool.QueueUserWorkItem(new WaitCallback(CanCancelMethod), cts.Token);
-                    cts.Cancel();
-                    Console.WriteLine("OK");
-
-
-                }
-
-
-            }
-
-
-            //3、Task
-            //Task和ThreadPool是一样的，都是从线程池中取空闲的线程
-            //使用Task开启一个线程
-
-            {
-
-                //方法1，使用Task.Run
-                Task.Run(() =>
-                {
-                    Console.WriteLine($"{Thread.CurrentThread.ManagedThreadId}线程已被开启");
-                });
-
-                //方法二
-                (new TaskFactory()).StartNew(() =>
-                {
-                    Console.WriteLine($"{Thread.CurrentThread.ManagedThreadId}线程已被开启");
-                });
-
-                //Run和StartNew方法都是返回一个Task类型的对象，代表当前开启的线程，如果方法有返回值
-
-                //如果方法有返回值
-                Task<int> t1 = Task.Run<int>(() => { return 1; });
-
-                // 获取值 
-                int result = t1.GetAwaiter().GetResult();
-                //or
-                int result1 = t1.Result;
-
-
-                //线程取消和ThreadPool是一样的
-
-                //1s后自动取消线程
-                CancellationTokenSource cts = new CancellationTokenSource(1000);
-                cts.Token.Register(() =>
-                {
-                    Console.WriteLine("线程已取消");
-                });
-
-                Task.Run(() =>
-                {
-                    Console.WriteLine("线程开始执行");
-                    Thread.Sleep(1000);
-
-                    //判断当前线程是否已被取消
-
-                    if (cts.Token.IsCancellationRequested)
-                    {
-                        Console.WriteLine("方法已结一束");
-                        return;
-                    }
-
-                    Console.WriteLine("线程继续执行中");
-
-                }, cts.Token);
-
-
-
-                //等待所有线程执行完毕
-
-                List<Task> lst = new List<Task>();
-
-                //开始线程
-
-                for (int i = 0; i < 100; i++)
-                {
-                    lst.Add(Task.Run(() =>
-                    {
-                        Thread.Sleep(new Random().Next(1, 10000));
-                        Console.WriteLine($"线程({Thread.CurrentThread.ManagedThreadId})");
-
-                    }));
-                }
-
-                //等待任意一个执行完毕
-                Task.WaitAny(lst.ToArray());
-                Console.WriteLine("其中一个执行完毕了");
-
-
-                //等待所有执行完毕
-                Task.WaitAll(lst.ToArray());
-                Console.WriteLine("所有线程执行完毕");
-
-                /*
-                 对于Thread、ThreadPool和Task，如果要用多线程的话，优先使用Task，如果版本不支持Task，则考虑ThreadPool
-                 */
-
-
-
-            }
-
-
-            //4、Parallel
-            //Parallel循环开启多线程，并行任务，对于多线程开启任务，开启的顺序都是不确定的
-            //Parallel.Invoke()
-            {
-
-                Action[] action = new Action[] {
-                    ()=>{ Console.WriteLine($"线程ID为：{Thread.CurrentThread.ManagedThreadId}"); },
-                    ()=>{ Console.WriteLine($"线程ID为：{Thread.CurrentThread.ManagedThreadId}"); },
-                    ()=>{ Console.WriteLine($"线程ID为：{Thread.CurrentThread.ManagedThreadId}"); },
-                    ()=>{ Console.WriteLine($"线程ID为：{Thread.CurrentThread.ManagedThreadId}"); },
-                    ()=>{ Console.WriteLine($"线程ID为：{Thread.CurrentThread.ManagedThreadId}"); },
-                    ()=>{ Console.WriteLine($"线程ID为：{Thread.CurrentThread.ManagedThreadId}"); },
-                    ()=>{ Console.WriteLine($"线程ID为：{Thread.CurrentThread.ManagedThreadId}"); },
-                };
-                Parallel.Invoke(action);
-
-                //相当于
-
-                for (int i = 0; i < action.Length; i++)
-                {
-                    Task.Run(action[i]);
-                }
-
-                //Invoke时也可以进行一些配置，例如配置线程池中只能最多保持一个线程
-                Parallel.Invoke(new ParallelOptions() { MaxDegreeOfParallelism = 1 }, action);
-
-                //Parallel.For()
-                ParallelLoopResult plr = Parallel.For(1, 10, (i) =>
-                {
-                    Console.WriteLine($"线程：{Thread.CurrentThread.ManagedThreadId}");
-                });
-                Console.WriteLine(plr.IsCompleted);
-
-                //相当于
-                for (int i = 0; i < 10; i++)
-                {
-                    Task.Run(() =>
-                    {
-                        Console.WriteLine($"线程：{Thread.CurrentThread.ManagedThreadId}");
-                    });
-                }
-                /*
-                 相对于循环Task.Run()
-                 更加简洁Parallel.ForEach()方法和foreach类似，
-                 不过是采用的是异步方式遍历，要想被Parallel.ForEach()必须实现IEnumerable接口
-                */
-
-                Parallel.ForEach<string>(new List<string>() { "a", "b", "c", "d" }, (str) =>
-                {
-                    Console.WriteLine(str);
-                });
-
-                //停止循环的方法
-
-                //将迭代的结果保存起来
-                ParallelLoopResult plr2 = Parallel.For(1, 10, (i, state) =>
-                {
-                    Console.WriteLine($"线程：{Thread.CurrentThread.ManagedThreadId}");
-                    if (i == 4)
-                    {
-                        state.Break();
-                    }
-
-                });
-                Console.WriteLine(plr.IsCompleted);
-
-            }
-
-            /*
-             5、Async、Await
-             async和await关键字用来实现异步编程，async用来修饰方法，
-             await用来调用方法，await关键字必须出现在有async的方法中，
-             await调用的方法可以不用async关键字修饰，
-             但是返回值类型必须为Task<T>类型，下面来说一下用法：
-             */
-            {
-                Demo1();
-                Console.ReadKey();
-
-            }
-        }
-
-        async static void Demo1()
-        {
-            await Demo2();
-        }
-
-        async static Task<int> Demo2()
-        {
-            return 1;
-        }
-
-        private static void CanCancelMethod(object state)
-        {
-            CancellationToken ct = (CancellationToken)state;
-            if (ct.IsCancellationRequested)
-            {
-                Console.WriteLine("线程已取消");
-
-            }
-            //就算ct.IsCancellationRequested为真，接下来的代码还是会执行
-            //因为该方法并没有Return
-            Thread.Sleep(1000);
-            Console.WriteLine($"子线程{Thread.CurrentThread.ManagedThreadId}结束");
-
-
-        }
-
-        private static void ParaConsoleLog(object obj)
-        {
-            Console.WriteLine(obj);
-        }
-
-        private static void ConsoleLog()
-        {
-            Console.WriteLine(DateTime.Now);
-        }
-
-    }
-}
-</code></pre>
+                <p><code>slmgr -ipk M7XTQ-FN8P6-TTKYV-9D4CC-J462D</code>slmgr -skms kms.03k.org<code></code>slmgr -ato`</p>
+<p>最后的激活说明：</p>
+<p>熟悉上述流程的网友应该知道这是KMS激活，每次激活有效期为半年也就是半年后需要再次按照教程激活下。</p>
+<p>当然相比KMS激活如果你能获得 Windows 10 LTSC 2019 的激活密钥那是最好，否则使用KMS激活也可以。</p>
 
             </div>
             <hr/>
@@ -876,9 +585,9 @@ namespace ThTest
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《Thread、ThreadPool、Task、Parallel、Async和Await基本用法、区别以及弊端》
+                    《win10_ltsc》
                 </span> by
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/08/17/csharp-thread/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/21/win10-ltsc/" property="cc:attributionName"
                rel="cc:attributionURL">
                 zhurg
             </a> is licensed under a
@@ -918,9 +627,10 @@ namespace ThTest
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2019/09/21/win10-ltsc/">
                     <div class="card-image">
@@ -938,9 +648,9 @@ namespace ThTest
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -953,6 +663,7 @@ namespace ThTest
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -975,31 +686,31 @@ namespace ThTest
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/08/16/ghs/">
+                <a href="/2019/08/17/csharp-thread/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="智能吊挂系统使用说明">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Thread、ThreadPool、Task、Parallel、Async和Await基本用法、区别以及弊端">
                         
-                        <span class="card-title">智能吊挂系统使用说明</span>
+                        <span class="card-title">Thread、ThreadPool、Task、Parallel、Async和Await基本用法、区别以及弊端</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            吊挂中常用的表，以及旧版程序升级到新版本的迁移注意事项。
+                            多线程的操作在程序中也是比较常见的，比如开启一个线程执行一些比较耗时的操作(IO操作)，而主线程继续执行当前操作，不会造成主线程阻塞。线程又分为前台线程和后台线程，区别是：整个程序必须要运行完前台线程才会退出，而后台线程会在程序退出的时候结束掉。Thread默认创建的是前台线程，而ThreadPool和Task默认创建的是后台线程，Thread可以通过设置 IsBackground 属性将线程设置为后台线程。。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-16
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-17
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/YIN/" class="post-category" target="_blank">
-                                    YIN
+                            <a href="/categories/Net/" class="post-category" target="_blank">
+                                    .Net
                                 </a>
                             
                             
@@ -1009,12 +720,12 @@ namespace ThTest
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ghs/" target="_blank">
-                        <span class="chip bg-color">ghs</span>
+                    <a href="/tags/WPF/" target="_blank">
+                        <span class="chip bg-color">WPF</span>
                     </a>
                     
-                    <a href="/tags/智能吊挂/" target="_blank">
-                        <span class="chip bg-color">智能吊挂</span>
+                    <a href="/tags/WPF异常补获/" target="_blank">
+                        <span class="chip bg-color">WPF异常补获</span>
                     </a>
                     
                 </div>
