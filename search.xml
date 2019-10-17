@@ -4,11 +4,36 @@
   
     
     <entry>
+      <title>aliyun-repo</title>
+      <link href="/2019/10/17/aliyun-repo/"/>
+      <url>/2019/10/17/aliyun-repo/</url>
+      
+        <content type="html"><![CDATA[<p>1）下载repo文件 wget <a href="http://mirrors.aliyun.com/repo/Centos-7.repo" target="_blank" rel="noopener">http://mirrors.aliyun.com/repo/Centos-7.repo</a></p><p>2）备份并替换系统的repo文件</p><p>cp Centos-7.repo /etc/yum.repos.d/</p><p>cd /etc/yum.repos.d/</p><p>mv CentOS-Base.repo CentOS-Base.repo.bak</p><p>mv Centos-7.repo CentOS-Base.repo</p><p>3）执行yum源更新命令</p><p>yum clean all</p><p>yum makecache</p><p>yum update</p><p>配置完毕。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Aliyun，Linux repo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Aliyun repo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>win10_ltsc</title>
       <link href="/2019/09/21/win10-ltsc/"/>
       <url>/2019/09/21/win10-ltsc/</url>
       
-        <content type="html"><![CDATA[<p><code>slmgr -ipk M7XTQ-FN8P6-TTKYV-9D4CC-J462D</code>slmgr -skms kms.03k.org<code></code>slmgr -ato`</p><p>最后的激活说明：</p><p>熟悉上述流程的网友应该知道这是KMS激活，每次激活有效期为半年也就是半年后需要再次按照教程激活下。</p><p>当然相比KMS激活如果你能获得 Windows 10 LTSC 2019 的激活密钥那是最好，否则使用KMS激活也可以。</p>]]></content>
+        <content type="html"><![CDATA[<p><code>slmgr -ipk M7XTQ-FN8P6-TTKYV-9D4CC-J462D</code><br><code>slmgr -skms kms.03k.org</code><br><code>slmgr -ato</code></p><p>最后的激活说明：</p><p>熟悉上述流程的网友应该知道这是KMS激活，每次激活有效期为半年也就是半年后需要再次按照教程激活下。</p><p>当然相比KMS激活如果你能获得 Windows 10 LTSC 2019 的激活密钥那是最好，否则使用KMS激活也可以。</p>]]></content>
       
       
       <categories>

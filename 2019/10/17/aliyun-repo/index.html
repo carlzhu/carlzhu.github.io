@@ -4,10 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="win10_ltsc, ZHURG">
-    <meta name="description" content="slmgr -ipk M7XTQ-FN8P6-TTKYV-9D4CC-J462Dslmgr -skms kms.03k.orgslmgr -ato
-最后的激活说明：
-熟悉上述流程的网友应该知道这是KMS激活，每次激活有效期为半年也就是半年后">
+    <meta name="keywords" content="aliyun-repo, ZHURG">
+    <meta name="description" content="1）下载repo文件 wget http://mirrors.aliyun.com/repo/Centos-7.repo
+2）备份并替换系统的repo文件
+cp Centos-7.repo /etc/yum.repos.d/
+cd /etc">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>win10_ltsc | ZHURG</title>
+    <title>aliyun-repo | ZHURG</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -262,13 +263,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        win10_ltsc
+                        aliyun-repo
                     </div>
                 </div>
             </div>
@@ -379,12 +380,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/WIN10/" target="_blank">
-                                <span class="chip bg-color">WIN10</span>
-                            </a>
-                        
-                            <a href="/tags/LTSC/" target="_blank">
-                                <span class="chip bg-color">LTSC</span>
+                            <a href="/tags/Aliyun-repo/" target="_blank">
+                                <span class="chip bg-color">Aliyun repo</span>
                             </a>
                         
                     </div>
@@ -395,8 +392,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Net，YIN-Framework/" class="post-category" target="_blank">
-                                .Net，YIN Framework
+                            <a href="/categories/Aliyun，Linux-repo/" class="post-category" target="_blank">
+                                Aliyun，Linux repo
                             </a>
                         
                     </div>
@@ -407,7 +404,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-09-21
+                    2019-10-17
                 </div>
 
                 
@@ -423,10 +420,17 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><code>slmgr -ipk M7XTQ-FN8P6-TTKYV-9D4CC-J462D</code><br><code>slmgr -skms kms.03k.org</code><br><code>slmgr -ato</code></p>
-<p>最后的激活说明：</p>
-<p>熟悉上述流程的网友应该知道这是KMS激活，每次激活有效期为半年也就是半年后需要再次按照教程激活下。</p>
-<p>当然相比KMS激活如果你能获得 Windows 10 LTSC 2019 的激活密钥那是最好，否则使用KMS激活也可以。</p>
+                <p>1）下载repo文件 wget <a href="http://mirrors.aliyun.com/repo/Centos-7.repo" target="_blank" rel="noopener">http://mirrors.aliyun.com/repo/Centos-7.repo</a></p>
+<p>2）备份并替换系统的repo文件</p>
+<p>cp Centos-7.repo /etc/yum.repos.d/</p>
+<p>cd /etc/yum.repos.d/</p>
+<p>mv CentOS-Base.repo CentOS-Base.repo.bak</p>
+<p>mv Centos-7.repo CentOS-Base.repo</p>
+<p>3）执行yum源更新命令</p>
+<p>yum clean all</p>
+<p>yum makecache</p>
+<p>yum update</p>
+<p>配置完毕。</p>
 
             </div>
             <hr/>
@@ -585,9 +589,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《win10_ltsc》
+                    《aliyun-repo》
                 </span> by
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/21/win10-ltsc/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/10/17/aliyun-repo/" property="cc:attributionName"
                rel="cc:attributionURL">
                 zhurg
             </a> is licensed under a
@@ -627,9 +631,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2019/10/17/aliyun-repo/">
                     <div class="card-image">
@@ -647,9 +652,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-17
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-17
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -662,6 +667,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -680,31 +686,31 @@
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/08/17/csharp-thread/">
+                <a href="/2019/09/21/win10-ltsc/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Thread、ThreadPool、Task、Parallel、Async和Await基本用法、区别以及弊端">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="win10_ltsc">
                         
-                        <span class="card-title">Thread、ThreadPool、Task、Parallel、Async和Await基本用法、区别以及弊端</span>
+                        <span class="card-title">win10_ltsc</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            多线程的操作在程序中也是比较常见的，比如开启一个线程执行一些比较耗时的操作(IO操作)，而主线程继续执行当前操作，不会造成主线程阻塞。线程又分为前台线程和后台线程，区别是：整个程序必须要运行完前台线程才会退出，而后台线程会在程序退出的时候结束掉。Thread默认创建的是前台线程，而ThreadPool和Task默认创建的是后台线程，Thread可以通过设置 IsBackground 属性将线程设置为后台线程。。
+                            win10 企业版本循环激活。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-17
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-21
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Net/" class="post-category" target="_blank">
-                                    .Net
+                            <a href="/categories/Net，YIN-Framework/" class="post-category" target="_blank">
+                                    .Net，YIN Framework
                                 </a>
                             
                             
@@ -714,12 +720,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/WPF/" target="_blank">
-                        <span class="chip bg-color">WPF</span>
+                    <a href="/tags/WIN10/" target="_blank">
+                        <span class="chip bg-color">WIN10</span>
                     </a>
                     
-                    <a href="/tags/WPF异常补获/" target="_blank">
-                        <span class="chip bg-color">WPF异常补获</span>
+                    <a href="/tags/LTSC/" target="_blank">
+                        <span class="chip bg-color">LTSC</span>
                     </a>
                     
                 </div>
